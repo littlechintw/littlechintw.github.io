@@ -38,14 +38,9 @@ export default {
 </script>
 
 <style>
-@import "./assets/font/font.css";
-div {
-  font-family: Open Huninn;
-}
-
+@import "./assets/font/font.css"; 
 #app {
-  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
-  -webkit-font-smoothing: antialiased;
+  font-family: Open Huninn;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-color: #2c3e50;
