@@ -87,9 +87,9 @@ export default {
   methods: {
     activeColor(active) {
       if (active) {
-        return "green";
+        return "#4DBB3B";
       }
-      return "blue";
+      return "#D3D3D3";
     },
   },
 };
