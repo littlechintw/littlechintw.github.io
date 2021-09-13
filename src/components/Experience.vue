@@ -53,7 +53,7 @@ export default {
       {
         title: "行政院公共數位創新空間 PDIS Ray 5.0 見習生",
         date: "2021/07 ~ 2021/08",
-        active: true,
+        active: false,
       },
       {
         title:

@@ -61,7 +61,7 @@ export default {
       {
         title: "SITCON 2021 攝影組 組員",
         date: "2020/11 ~ 2021/09",
-        active: true,
+        active: false,
       },
       {
         title: "SITCON 2020 場務組 組員",
