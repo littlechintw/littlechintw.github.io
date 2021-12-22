@@ -62,8 +62,7 @@ export default {
         active: false,
       },
       {
-        title:
-          "109 年 行政院國家資通安全網路攻防演練 攻擊手",
+        title: "109 年 行政院國家資通安全網路攻防演練 攻擊手",
         date: "2020",
         active: false,
       },
@@ -74,7 +73,7 @@ export default {
         active: false,
       },
       {
-        title: "DSC NTPU Lead 2019-2020",
+        title: "Google DSC NTPU Lead 2019-2020",
         date: "2019/07 ~ 2020/06",
         active: false,
       },
