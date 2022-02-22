@@ -56,6 +56,11 @@ export default {
         active: false,
       },
       {
+        title: "110 年 行政院國家資通安全網路攻防演練 攻擊手",
+        date: "2021",
+        active: false,
+      },
+      {
         title:
           "第21屆 國立臺北大學 三峽校區學生會 NTPU Student Union 資訊部部長",
         date: "2020/07 ~ 2021/06",
