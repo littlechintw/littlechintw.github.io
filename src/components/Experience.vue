@@ -51,6 +51,11 @@ export default {
   data: () => ({
     experience_list: [
       {
+        title: "HP Inc. - Software Testing Intern",
+        date: "2022/07 ~ 2023/07",
+        active: true,
+      },
+      {
         title: "行政院公共數位創新空間 PDIS Ray 5.0 見習生",
         date: "2021/07 ~ 2021/08",
         active: false,
