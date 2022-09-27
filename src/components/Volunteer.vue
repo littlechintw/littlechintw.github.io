@@ -49,7 +49,22 @@ export default {
   data: () => ({
     volunteer_list: [
       {
-        title: "SITCON 2021 攝影組 組長",
+        title: "SITCON 2022 紀錄組 組長",
+        date: "2021/12 ~ Now",
+        active: true,
+      },
+      {
+        title: "HITCON 2022 攝影組 組員",
+        date: "2021/05 ~ 2021/11",
+        active: false,
+      },
+      {
+        title: "COSCUP 2022 紀錄組 組員",
+        date: "2021/03 ~ 2021/07",
+        active: false,
+      },
+      {
+        title: "SITCON 2021 攝影組 組員",
         date: "2021/12 ~ Now",
         active: true,
       },
