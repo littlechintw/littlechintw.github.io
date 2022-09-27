@@ -50,23 +50,18 @@ export default {
     volunteer_list: [
       {
         title: "SITCON 2022 紀錄組 組長",
-        date: "2021/12 ~ Now",
-        active: true,
+        date: "2021/12 ~ 2022/09",
+        active: false,
       },
       {
         title: "HITCON 2022 攝影組 組員",
-        date: "2021/05 ~ 2021/11",
+        date: "2022/05 ~ 2022/08",
         active: false,
       },
       {
         title: "COSCUP 2022 紀錄組 組員",
-        date: "2021/03 ~ 2021/07",
+        date: "2022/03 ~ 2022/08",
         active: false,
-      },
-      {
-        title: "SITCON 2021 攝影組 組員",
-        date: "2021/12 ~ Now",
-        active: true,
       },
       {
         title: "HITCON 2021 平面攝影組 組員",
