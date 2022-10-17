@@ -3,7 +3,7 @@
 # For more information see: 
 # https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Build CI
+name: Build Hugo
 
 on:
   push:
@@ -16,34 +16,27 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.68.3'
+
+      - name: Build
+        run: hugo --minify
     
-    - name: Install Yarn
-      run: npm install -g yarn
-      
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: yarn install --frozen-lockfile
-    - run: yarn build
-    - run: cp dist/index.html dist/404.html  # GitHub Pages fallback
-    
-    - name: GH Pages deploy
-      uses: Cecilapp/GitHub-Pages-deploy@3.2.1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        # A verified email.
-        email: ${{ secrets.EMAIL }}
-        # Where static files are.
-        build_dir: dist
-        branch: gh-pages
-        cname: littlechin.tw
+      - name: GH Pages deploy
+        uses: Cecilapp/GitHub-Pages-deploy@3.2.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # A verified email.
+          email: ${{ secrets.EMAIL }}
+          # Where static files are.
+          build_dir: docs
+          branch: gh-pages
+          cname: littlechin.tw
