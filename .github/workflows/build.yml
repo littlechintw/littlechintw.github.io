@@ -29,6 +29,7 @@ jobs:
       - name: Build
         run: hugo --minify
     
+<<<<<<< HEAD
       - name: GH Pages deploy
         uses: Cecilapp/GitHub-Pages-deploy@3.2.1
         env:
@@ -40,3 +41,21 @@ jobs:
           build_dir: docs
           branch: gh-pages
           cname: littlechin.tw
+=======
+    - name: Install
+      run: npm install
+    - name: Build
+      run: npm run build
+      
+    - name: GH Pages deploy
+      uses: Cecilapp/GitHub-Pages-deploy@3.2.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        # A verified email.
+        email: ${{ secrets.EMAIL }}
+        # Where static files are.
+        build_dir: dist
+        branch: gh-pages
+        cname: littlechin.tw
+>>>>>>> origin
