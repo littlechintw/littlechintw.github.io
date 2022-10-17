@@ -37,6 +37,6 @@ jobs:
           # A verified email.
           email: ${{ secrets.EMAIL }}
           # Where static files are.
-          build_dir: docs
+          build_dir: public
           branch: gh-pages
           cname: littlechin.tw
