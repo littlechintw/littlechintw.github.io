@@ -6,7 +6,7 @@
         <v-divider />
         <br />
         <h3 v-for="works in works_list" :key="works">
-          <v-chip small chip class="ma-2" color="#0ABAB5" text-color="black">
+          <v-chip outlined small chip class="ma-2" color="#0ABAB5" text-color="black">
             {{ works.date }}
           </v-chip>
           <v-chip

@@ -9,7 +9,7 @@
           <v-icon x-small>mdi-circle</v-icon> <a target="_blank" :href="communities.href" style="color: black">{{
           communities.title }}</a>
           <h4 v-for="detail in communities.detailList" :key="detail" style="padding-left: 30px">
-            <v-chip small chip class="ma-2" color="#0ABAB5" text-color="black">
+            <v-chip outlined small chip class="ma-2" color="#0ABAB5" text-color="black">
               {{ detail.date }}
             </v-chip>
             {{ detail.title }}
