@@ -4,9 +4,10 @@
       <Intro />
     </div>
     <div class="right-block">
-      <Experience />
-      <Volunteer />
       <Works />
+      <Experiences />
+      <Communities />
+      <Projects />
       <br />
     </div>
   </div>
@@ -15,17 +16,19 @@
 <script>
 // @ is an alias to /src
 import Intro from "@/components/Intro.vue";
-import Experience from "@/components/Experience.vue";
-import Volunteer from "@/components/Volunteer.vue";
 import Works from "@/components/Works.vue";
+import Experiences from "@/components/Experiences.vue";
+import Communities from "@/components/Communities.vue";
+import Projects from "@/components/Projects.vue";
 
 export default {
   name: "Home",
   components: {
     Intro,
-    Experience,
-    Volunteer,
     Works,
+    Experiences,
+    Communities,
+    Projects,
   },
   data: () => ({}),
 };

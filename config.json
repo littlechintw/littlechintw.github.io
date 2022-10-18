@@ -1,0 +1,190 @@
+{
+    "works": [
+        {
+            "title": "HP Inc. - Software Testing Intern",
+            "date": "2022/07 - Now",
+            "href": "https://hp.com",
+            "active": true
+        },
+        {
+            "title": "行政院公共數位創新空間 PDIS Ray 5.0 見習生",
+            "date": "2021/07 - 2021/08",
+            "href": "https://pdis.nat.gov.tw/",
+            "active": false
+        }
+    ],
+    "experiences": [
+        {
+            "title": "行政院國家資通安全網路攻防演練",
+            "detailList": [
+                {
+                    "date": "2020",
+                    "title": "109 學研攻擊手"
+                },
+                {
+                    "date": "2021",
+                    "title": "110 學研攻擊手"
+                },
+                {
+                    "date": "2022",
+                    "title": "111 學研攻擊手"
+                }
+            ],
+            "href": ""
+        },
+        {
+            "title": "臺灣好厲駭高階資安人才培訓計畫",
+            "detailList": [
+                {
+                    "date": "2019/09 - 2020/08",
+                    "title": "第四屆學員 結業"
+                },
+                {
+                    "date": "2020/09 - 2021/08",
+                    "title": "第五屆學員 結業"
+                },
+                {
+                    "date": "2021/09 - 2022/08",
+                    "title": "第六屆學員 結業"
+                },
+                {
+                    "date": "2022/09 – NOW",
+                    "title": "第七屆學員"
+                }
+            ],
+            "href": "https://isip.moe.edu.tw/wordpress/?page_id=368"
+        },
+        {
+            "title": "AIS3 新型態資安實務主題課程",
+            "detailList": [
+                {
+                    "date": "2019/07 - 2019/08",
+                    "title": "數位鑑識組 結業"
+                }
+            ],
+            "href": "https://ais3.org/"
+        },
+        {
+            "title": "國立臺北大學 三峽校區 學生會",
+            "detailList": [
+                {
+                    "date": "2019/07 - 2020/06",
+                    "title": "第 20 屆 資訊部 副部長"
+                },
+                {
+                    "date": "2020/07 - 2021/06",
+                    "title": "第 21 屆 資訊部 部長"
+                }
+            ],
+            "href": "https://su.ntpu.org/"
+        }
+    ],
+    "communities": [
+        {
+            "title": "Developer Student Clubs Google 學生開發者社群",
+            "detailList": [
+                {
+                    "date": "2019 – 2020",
+                    "title": "NTPU Lead"
+                }
+            ],
+            "href": "https://developers.google.com/community/gdsc"
+        },
+        {
+            "title": "SITCON 學生計算機年會",
+            "detailList": [
+                {
+                    "date": "2017",
+                    "title": "會眾"
+                },
+                {
+                    "date": "2018",
+                    "title": "會眾"
+                },
+                {
+                    "date": "2020",
+                    "title": "工作人員"
+                },
+                {
+                    "date": "2021",
+                    "title": "工作人員"
+                },
+                {
+                    "date": "2022",
+                    "title": "紀錄組 組長"
+                }
+            ],
+            "href": "https://sitcon.org/"
+        },
+        {
+            "title": "COSCUP 開源人年會",
+            "detailList": [
+                {
+                    "date": "2020",
+                    "title": "會眾"
+                },
+                {
+                    "date": "2021",
+                    "title": "工作人員"
+                },
+                {
+                    "date": "2022",
+                    "title": "工作人員"
+                }
+            ],
+            "href": "https://coscup.org/"
+        },
+        {
+            "title": "Hacks In Taiwan Conference (HITCON) 台灣駭客年會",
+            "detailList": [
+                {
+                    "date": "2020",
+                    "title": "會眾"
+                },
+                {
+                    "date": "2021",
+                    "title": "工作人員"
+                },
+                {
+                    "date": "2022",
+                    "title": "工作人員"
+                }
+            ],
+            "href": "https://hitcon.org/"
+        },
+        {
+            "title": "CYBERSEC 臺灣資安大會",
+            "detailList": [
+                {
+                    "date": "2021",
+                    "title": "會眾"
+                },
+                {
+                    "date": "2022",
+                    "title": "會眾"
+                }
+            ],
+            "href": "https://cyber.ithome.com.tw/"
+        },
+        {
+            "title": "g0v 台灣零時政府 黑客松",
+            "detailList": [
+                {
+                    "date": "Hackath43n",
+                    "title": "工作人員"
+                }
+            ],
+            "href": "https://jothon.g0v.tw/"
+        },
+        {
+            "title": "GDG DevFest",
+            "detailList": [
+                {
+                    "date": "Taipei 2020",
+                    "title": "工作人員"
+                }
+            ],
+            "href": "https://developers.google.com/community/devfest"
+        }
+    ]
+}

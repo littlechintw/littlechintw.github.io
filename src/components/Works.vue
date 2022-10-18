@@ -5,51 +5,46 @@
         <h1>Works</h1>
         <v-divider />
         <br />
-        <a
-          v-for="works in works_list"
-          :key="works"
-          target="_blank"
-          :href="works.href"
-        >
-          {{ works.title }}
-          <br />
-        </a>
+        <h3 v-for="works in works_list" :key="works">
+          <v-chip small chip class="ma-2" color="#0ABAB5" text-color="black">
+            {{ works.date }}
+          </v-chip>
+          <v-chip
+            x-small
+            chip
+            class="ma-2"
+            color="green"
+            text-color="white"
+            v-show="works.active"
+          >
+            Now
+          </v-chip>
+          <a target="_blank" :href="works.href" style="color: black">{{ works.title }}</a>
+        </h3>
       </v-card-text>
     </v-card>
   </v-container>
 </template>
 
 <script>
+var config = require("../../config.json");
+
 export default {
-  name: "Intro",
+  name: "Works",
   components: {},
   data: () => ({
-    works_list: [
-      {
-        title: "Short Text Tool",
-        href: "https://s.littlechin.tw/",
-      },
-      {
-        title: "NTPU 課程試排",
-        href: "https://ntpu-timetable.littlechin.tw/",
-      },
-      {
-        title: "NTPU Notifications (Telegram Channel)",
-        href: "https://t.me/ntpu_notifications",
-      },
-      {
-        title: "NTPU Tool",
-        href: "https://ntpu-tool.netlify.app/",
-      },
-      {
-        title: "NTPU All Star Game 2020",
-        href: "https://allstar.ntpu.org/",
-      },
-      {
-        title: "我的作品集",
-        href: "https://littlechin.tw/My_Project_Box",
-      },
-    ],
+    works_list: [],
   }),
+  methods: {
+    activeColor(active) {
+      if (active) {
+        return "#4DBB3B";
+      }
+      return "#D3D3D3";
+    },
+  },
+  mounted: function () {
+    this.works_list = config.works;
+  },
 };
 </script>

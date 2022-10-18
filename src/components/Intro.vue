@@ -11,7 +11,7 @@
         <v-divider />
         <br />
         <h3 style="text-align: left">
-          我是<strong>小群</strong>，是個攝影師與程式設計師。除了熱愛創造新事物，也喜歡在城市與程式間穿梭，希望讓更多人能夠看見世界，也可以讓更多人使用我所創造出的工具。
+          我是<strong>小群</strong>，但，你怎麼在這？
         </h3>
         <br />
         <v-divider />
@@ -48,20 +48,12 @@ export default {
         category: "github",
       },
       {
-        link: "https://medium.com/@littlechintw",
-        category: "alpha-m-box",
-      },
-      {
         link: "https://www.facebook.com/littlechinright",
         category: "facebook",
       },
       {
         link: "https://www.instagram.com/littlechintw",
         category: "instagram",
-      },
-      {
-        link: "https://t.me/littlechin/",
-        category: "send",
       },
       {
         link: "mailto:littlechintw+page@gmail.com",
