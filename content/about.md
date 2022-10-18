@@ -1,7 +1,10 @@
----
-title: "About"
-author: "littlechin"
----
++++
+title = "About"
+description = "littlechin's About"
+date = "2022-10-18"
+aliases = ["about-me", "contact"]
+author = "littlechin"
++++
 
 ---
 
