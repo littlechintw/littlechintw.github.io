@@ -16,7 +16,7 @@ const vue_router = new VueRouter({
 });
 
 Vue.use(VueGtag, {
-  config: { id: "UA-128753148-1" }
+  config: { id: "G-VGDKRYEE2D" }
 }, vue_router);
 
 new Vue({
