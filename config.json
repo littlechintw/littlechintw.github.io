@@ -186,5 +186,27 @@
             ],
             "href": "https://developers.google.com/community/devfest"
         }
+    ],
+    "projects": [
+        {
+            "title": "Short Text Tool",
+            "href": "https://s.littlechin.tw/"
+        },
+        {
+            "title": "NTPU 課程試排",
+            "href": "https://ntpu-timetable.littlechin.tw/"
+        },
+        {
+            "title": "NTPU Notifications",
+            "href": "https://t.me/ntpu_notifications"
+        },
+        {
+            "title": "NTPU Tool",
+            "href": "https://ntpu-tool.netlify.app/"
+        },
+        {
+            "title": "NTPU All Star Game 2020",
+            "href": "https://ntpu-allstar.littlechin.tw/"
+        }
     ]
 }
