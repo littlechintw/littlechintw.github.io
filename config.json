@@ -19,15 +19,18 @@
             "detailList": [
                 {
                     "date": "2020",
-                    "title": "109 學研攻擊手"
+                    "title": "109 學研攻擊手",
+                    "active": false
                 },
                 {
                     "date": "2021",
-                    "title": "110 學研攻擊手"
+                    "title": "110 學研攻擊手",
+                    "active": false
                 },
                 {
                     "date": "2022",
-                    "title": "111 學研攻擊手"
+                    "title": "111 學研攻擊手",
+                    "active": false
                 }
             ],
             "href": ""
@@ -37,19 +40,23 @@
             "detailList": [
                 {
                     "date": "2019/09 - 2020/08",
-                    "title": "第四屆學員 結業"
+                    "title": "第四屆學員 結業",
+                    "active": false
                 },
                 {
                     "date": "2020/09 - 2021/08",
-                    "title": "第五屆學員 結業"
+                    "title": "第五屆學員 結業",
+                    "active": false
                 },
                 {
                     "date": "2021/09 - 2022/08",
-                    "title": "第六屆學員 結業"
+                    "title": "第六屆學員 結業",
+                    "active": false
                 },
                 {
                     "date": "2022/09 – NOW",
-                    "title": "第七屆學員"
+                    "title": "第七屆學員",
+                    "active": true
                 }
             ],
             "href": "https://isip.moe.edu.tw/wordpress/?page_id=368"
@@ -59,7 +66,8 @@
             "detailList": [
                 {
                     "date": "2019/07 - 2019/08",
-                    "title": "數位鑑識組 結業"
+                    "title": "數位鑑識組 結業",
+                    "active": false
                 }
             ],
             "href": "https://ais3.org/"
@@ -69,11 +77,13 @@
             "detailList": [
                 {
                     "date": "2019/07 - 2020/06",
-                    "title": "第 20 屆 資訊部 副部長"
+                    "title": "第 20 屆 資訊部 副部長",
+                    "active": false
                 },
                 {
                     "date": "2020/07 - 2021/06",
-                    "title": "第 21 屆 資訊部 部長"
+                    "title": "第 21 屆 資訊部 部長",
+                    "active": false
                 }
             ],
             "href": "https://su.ntpu.org/"
@@ -85,7 +95,8 @@
             "detailList": [
                 {
                     "date": "2019 – 2020",
-                    "title": "NTPU Lead"
+                    "title": "NTPU Lead",
+                    "active": false
                 }
             ],
             "href": "https://developers.google.com/community/gdsc"
@@ -95,23 +106,28 @@
             "detailList": [
                 {
                     "date": "2017",
-                    "title": "會眾"
+                    "title": "會眾",
+                    "active": false
                 },
                 {
                     "date": "2018",
-                    "title": "會眾"
+                    "title": "會眾",
+                    "active": false
                 },
                 {
                     "date": "2020",
-                    "title": "工作人員"
+                    "title": "工作人員",
+                    "active": false
                 },
                 {
                     "date": "2021",
-                    "title": "工作人員"
+                    "title": "工作人員",
+                    "active": false
                 },
                 {
                     "date": "2022",
-                    "title": "紀錄組 組長"
+                    "title": "紀錄組 組長",
+                    "active": false
                 }
             ],
             "href": "https://sitcon.org/"
@@ -121,15 +137,18 @@
             "detailList": [
                 {
                     "date": "2020",
-                    "title": "會眾"
+                    "title": "會眾",
+                    "active": false
                 },
                 {
                     "date": "2021",
-                    "title": "工作人員"
+                    "title": "工作人員",
+                    "active": false
                 },
                 {
                     "date": "2022",
-                    "title": "工作人員"
+                    "title": "工作人員",
+                    "active": false
                 }
             ],
             "href": "https://coscup.org/"
@@ -139,15 +158,18 @@
             "detailList": [
                 {
                     "date": "2020",
-                    "title": "會眾"
+                    "title": "會眾",
+                    "active": false
                 },
                 {
                     "date": "2021",
-                    "title": "工作人員"
+                    "title": "工作人員",
+                    "active": false
                 },
                 {
                     "date": "2022",
-                    "title": "工作人員"
+                    "title": "工作人員",
+                    "active": false
                 }
             ],
             "href": "https://hitcon.org/"
@@ -157,11 +179,13 @@
             "detailList": [
                 {
                     "date": "2021",
-                    "title": "會眾"
+                    "title": "會眾",
+                    "active": false
                 },
                 {
                     "date": "2022",
-                    "title": "會眾"
+                    "title": "會眾",
+                    "active": false
                 }
             ],
             "href": "https://cyber.ithome.com.tw/"
@@ -171,7 +195,8 @@
             "detailList": [
                 {
                     "date": "Hackath43n",
-                    "title": "工作人員"
+                    "title": "工作人員",
+                    "active": false
                 }
             ],
             "href": "https://jothon.g0v.tw/"
@@ -181,7 +206,8 @@
             "detailList": [
                 {
                     "date": "Taipei 2020",
-                    "title": "工作人員"
+                    "title": "工作人員",
+                    "active": false
                 }
             ],
             "href": "https://developers.google.com/community/devfest"

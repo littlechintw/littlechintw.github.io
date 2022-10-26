@@ -6,10 +6,17 @@
         <v-divider />
         <br />
         <h3 v-for="communities in communities_list" :key="communities" style="padding-bottom: 10px">
-          <v-icon x-small>mdi-circle</v-icon> <a target="_blank" :href="communities.href" style="color: black">{{
-          communities.title }}</a>
+          <v-icon x-small>mdi-circle</v-icon> 
+          <a target="_blank" :href="communities.href">
+            <v-tooltip color="black" bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <span style="color: black" v-bind="attrs" v-on="on">{{ communities.title }}</span>
+              </template>
+              <span>開啟新視窗</span>
+            </v-tooltip>
+          </a>
           <h4 v-for="detail in communities.detailList" :key="detail" style="padding-left: 30px">
-            <v-chip outlined small chip class="ma-2" color="#0ABAB5" text-color="black">
+            <v-chip :outlined="!detail.active" small chip class="ma-2" color="#0ABAB5" text-color="black">
               {{ detail.date }}
             </v-chip>
             {{ detail.title }}
