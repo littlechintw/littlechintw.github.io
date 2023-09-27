@@ -2,9 +2,9 @@
     "works": [
         {
             "title": "HP Inc. - Software Testing Intern",
-            "date": "2022/07 - Now",
+            "date": "2022/07 - 2323/07",
             "href": "https://hp.com",
-            "active": true
+            "active": false
         },
         {
             "title": "行政院公共數位創新空間 PDIS Ray 5.0 見習生",
@@ -54,8 +54,8 @@
                     "active": false
                 },
                 {
-                    "date": "2022/09 – NOW",
-                    "title": "第七屆學員",
+                    "date": "2022/09 – 2323/08",
+                    "title": "第七屆學員 結業",
                     "active": true
                 }
             ],
@@ -128,6 +128,11 @@
                     "date": "2022",
                     "title": "紀錄組 組長",
                     "active": false
+                },
+                {
+                    "date": "2023",
+                    "title": " Camp 紀錄組 路人",
+                    "active": false
                 }
             ],
             "href": "https://sitcon.org/"
@@ -142,12 +147,17 @@
                 },
                 {
                     "date": "2021",
-                    "title": "工作人員",
+                    "title": "紀錄組 組員",
                     "active": false
                 },
                 {
                     "date": "2022",
-                    "title": "工作人員",
+                    "title": "紀錄組 組員",
+                    "active": false
+                },
+                {
+                    "date": "2023",
+                    "title": "紀錄組 組員",
                     "active": false
                 }
             ],
@@ -163,12 +173,17 @@
                 },
                 {
                     "date": "2021",
-                    "title": "工作人員",
+                    "title": "平面攝影組 組員",
                     "active": false
                 },
                 {
                     "date": "2022",
-                    "title": "工作人員",
+                    "title": "平面攝影組 組員",
+                    "active": false
+                },
+                {
+                    "date": "2023",
+                    "title": "攝影組 組員",
                     "active": false
                 }
             ],
@@ -184,6 +199,11 @@
                 },
                 {
                     "date": "2022",
+                    "title": "會眾",
+                    "active": false
+                },
+                {
+                    "date": "2023",
                     "title": "會眾",
                     "active": false
                 }
@@ -225,10 +245,6 @@
         {
             "title": "NTPU Notifications",
             "href": "https://t.me/ntpu_notifications"
-        },
-        {
-            "title": "NTPU Tool",
-            "href": "https://ntpu-tool.netlify.app/"
         },
         {
             "title": "NTPU All Star Game 2020",
