@@ -3,4 +3,8 @@ import { createApp } from 'vue'
 import './index.css'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import VueGtag from "vue-gtag";
+
+createApp(App).use(VueGtag, {
+  config: { id: "G-VGDKRYEE2D" }
+}).mount('#app')
