@@ -1,10 +1,10 @@
 <template>
   <!-- Dark mode enabled -->
-  <html class="dark">
+  <html class="dark bg-black">
 
   <body>
     <!-- Will be black -->
-    <div class="bg-white dark:bg-black">
+    <div class="bg-black">
       <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
         <!-- <img src="{img url}" alt=""
           class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center" /> -->
@@ -50,7 +50,7 @@
 
     <div style="margin-left: 10%; margin-right: 10%; margin-top: 20px;">
       <div class="px-4 sm:px-0">
-        <kbd class="kbd kbd-md">
+        <kbd class="kbd kbd-md bg-black">
           <h3 class="text-base font-semibold leading-7 text-gray-100"
             style="background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
             Works</h3>
@@ -80,7 +80,7 @@
     <div style="margin-left: 10%; margin-right: 10%; margin-top: 20px;">
       <div class="px-4 sm:px-0">
 
-        <kbd class="kbd kbd-md">
+        <kbd class="kbd kbd-md bg-black">
           <h3 class="text-base font-semibold leading-7 text-gray-100"
             style="background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
             Experiences</h3>
@@ -146,7 +146,7 @@
     <div style="margin-left: 10%; margin-right: 10%; margin-top: 20px;">
       <div class="px-4 sm:px-0">
 
-        <kbd class="kbd kbd-md">
+        <kbd class="kbd kbd-md bg-black">
           <h3 class="text-base font-semibold leading-7 text-gray-100"
             style="background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
             Communities</h3>
