@@ -106,6 +106,10 @@
             <dd class="mt-1 text-sm leading-6 text-gray-300 sm:col-span-2 sm:mt-0">
               <div class="mx-2 badge badge-accent badge-outline">2022</div> 111 學研攻擊手
             </dd>
+            <dt class="text-sm font-medium leading-6 text-gray-100"></dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-300 sm:col-span-2 sm:mt-0">
+              <div class="mx-2 badge badge-accent badge-outline">2021</div> 112 學研攻擊手
+            </dd>
           </div>
           <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt class="text-sm font-medium leading-6 text-gray-100">臺灣好厲駭高階資安人才培訓計畫</dt>
