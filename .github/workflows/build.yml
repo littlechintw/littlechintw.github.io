@@ -25,6 +25,8 @@ jobs:
       run: yarn
     - name: Build
       run: yarn build
+    - name: Copy index.html to 404.index
+      run: cp dist/index.html dist/404.html
       
     - name: GH Pages deploy
       uses: Cecilapp/GitHub-Pages-deploy@3.2.1
