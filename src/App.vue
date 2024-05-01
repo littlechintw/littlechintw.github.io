@@ -335,7 +335,7 @@ const links = [
 ]
 const stats = [
   { name: 'Me', value: 'Photographer, Coder' },
-  { name: 'Work', value: 'Nothing yet...' },
+  { name: 'Work', value: 'Software Engineer, SQA Engineer' },
   // { name: 'Education', value: '' },
   { name: 'Future?', value: 'Unlimited' },
 ]
