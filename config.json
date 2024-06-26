@@ -131,8 +131,18 @@
                 },
                 {
                     "date": "2023",
-                    "title": " Camp 紀錄組 路人",
+                    "title": "Camp 紀錄組 路人",
                     "active": false
+                },
+                {
+                    "date": "2024",
+                    "title": "紀錄組 組員",
+                    "active": false
+                },
+                {
+                    "date": "2024",
+                    "title": "Hackathon 紀錄組 組員",
+                    "active": true
                 }
             ],
             "href": "https://sitcon.org/"
@@ -159,6 +169,11 @@
                     "date": "2023",
                     "title": "紀錄組 組員",
                     "active": false
+                },
+                {
+                    "date": "2024",
+                    "title": "紀錄組 組員",
+                    "active": true
                 }
             ],
             "href": "https://coscup.org/"
@@ -185,7 +200,13 @@
                     "date": "2023",
                     "title": "攝影組 組員",
                     "active": false
+                },
+                {
+                    "date": "2024",
+                    "title": "攝影組 組員",
+                    "active": true
                 }
+                
             ],
             "href": "https://hitcon.org/"
         },
@@ -204,6 +225,11 @@
                 },
                 {
                     "date": "2023",
+                    "title": "會眾",
+                    "active": false
+                },
+                {
+                    "date": "2024",
                     "title": "會眾",
                     "active": false
                 }
