@@ -1,0 +1,149 @@
+{
+  "profile": {
+    "name": "littlechin",
+    "avatar": "https://www.gravatar.com/avatar/c87cbee0a4a96655bd7366b56be7a18a",
+    "description": "我是小群，但，你怎麼在這？"
+  },
+  "links": [
+    { "name": "Resume", "href": "resume" },
+    { "name": "LinkedIn", "href": "https://www.linkedin.com/in/littlechin" },
+    { "name": "GitHub", "href": "https://github.com/littlechintw" },
+    { "name": "Email", "href": "mailto:littlechintw+page@gmail.com" }
+  ],
+  "stats": [
+    { "name": "Me", "value": "Photographer, Coder" },
+    { "name": "Work", "value": "Software Engineer, SQA Engineer" },
+    { "name": "Future?", "value": "Unlimited" }
+  ],
+  "works": [
+    {
+      "company": "HP Inc.",
+      "positions": [
+        {
+          "title": "Software Testing Intern",
+          "period": "2022/07 - 2023/07",
+          "active": false
+        },
+        {
+          "title": "Software / System Engineer",
+          "period": "2024/03 - Now",
+          "active": true
+        }
+      ]
+    },
+    {
+      "company": "行政院公共數位創新空間 PDIS",
+      "positions": [
+        {
+          "title": "Ray 5.0 見習生",
+          "period": "2021/07 - 2021/08",
+          "active": false
+        }
+      ]
+    }
+  ],
+  "experiences": [
+    {
+      "organization": "行政院國家資通安全網路攻防演練",
+      "positions": [
+        { "title": "109 學研攻擊手", "period": "2020", "active": false },
+        { "title": "110 學研攻擊手", "period": "2021", "active": false },
+        { "title": "111 學研攻擊手", "period": "2022", "active": false },
+        { "title": "112 學研攻擊手", "period": "2023", "active": false }
+      ]
+    },
+    {
+      "organization": "臺灣好厲駭高階資安人才培訓計畫",
+      "positions": [
+        { "title": "第四屆學員 結業", "period": "2019/09 - 2020/08", "active": false },
+        { "title": "第五屆學員 結業", "period": "2020/09 - 2021/08", "active": false },
+        { "title": "第六屆學員 結業", "period": "2021/09 - 2022/08", "active": false },
+        { "title": "第七屆學員 結業", "period": "2022/09 - 2023/08", "active": false }
+      ]
+    },
+    {
+      "organization": "AIS3 新型態資安實務主題課程",
+      "positions": [
+        { "title": "數位鑑識組 結業", "period": "2019/07 - 2019/08", "active": false }
+      ]
+    },
+    {
+      "organization": "國立臺北大學 三峽校區 學生會",
+      "positions": [
+        { "title": "第 20 屆 資訊部 副部長", "period": "2019/07 - 2020/06", "active": false },
+        { "title": "第 21 屆 資訊部 部長", "period": "2020/07 - 2021/06", "active": false }
+      ]
+    }
+  ],
+  "communities": [
+    {
+      "organization": "Developer Student Clubs Google 學生開發者社群",
+      "positions": [
+        { "title": "NTPU Lead", "period": "2019 – 2020", "active": false }
+      ]
+    },
+    {
+      "organization": "SITCON 學生計算機年會",
+      "positions": [
+        { "title": "會眾", "period": "2017", "active": false },
+        { "title": "會眾", "period": "2018", "active": false },
+        { "title": "場務組 組員", "period": "2020", "active": false },
+        { "title": "攝影組 組員", "period": "2021", "active": false },
+        { "title": "紀錄組 組長", "period": "2022", "active": false },
+        { "title": "Camp 紀錄組 小天使", "period": "2023", "active": false },
+        { "title": "紀錄組 組員", "period": "2024", "active": false },
+        { "title": "Hackathon 紀錄組 組員", "period": "2024", "active": false },
+        { "title": "會眾", "period": "2025", "active": false }
+      ]
+    },
+    {
+      "organization": "COSCUP 開源人年會",
+      "positions": [
+        { "title": "會眾", "period": "2020", "active": false },
+        { "title": "紀錄組 組員", "period": "2021", "active": false },
+        { "title": "紀錄組 組員", "period": "2022", "active": false },
+        { "title": "紀錄組 組員", "period": "2023", "active": false },
+        { "title": "紀錄組 組員", "period": "2024", "active": false }
+      ]
+    },
+    {
+      "organization": "Hacks In Taiwan Conference (HITCON) 台灣駭客年會",
+      "positions": [
+        { "title": "會眾", "period": "2020", "active": false },
+        { "title": "平面攝影組 組員", "period": "2021", "active": false },
+        { "title": "平面攝影組 組員", "period": "2022", "active": false },
+        { "title": "攝影組 組員", "period": "2023", "active": false },
+        { "title": "攝影組 組員", "period": "2024", "active": true }
+      ]
+    },
+    {
+      "organization": "CYBERSEC 臺灣資安大會",
+      "positions": [
+        { "title": "會眾", "period": "2021", "active": false },
+        { "title": "會眾", "period": "2022", "active": false },
+        { "title": "會眾", "period": "2023", "active": false },
+        { "title": "會眾", "period": "2024", "active": false }
+      ]
+    },
+    {
+      "organization": "g0v 台灣零時政府 黑客松",
+      "positions": [
+        { "title": "Hackath43n 攝影", "period": "2021/03", "active": false }
+      ]
+    },
+    {
+      "organization": "GDG DevFest",
+      "positions": [
+        { "title": "Taipei 工作人員", "period": "2020", "active": false }
+      ]
+    }
+  ],
+  "photography": [
+    {
+      "organization": "上岸音樂節",
+      "positions": [
+        { "title": "相手", "period": "2024", "active": true }
+      ]
+    }
+  ]
+}
