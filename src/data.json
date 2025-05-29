@@ -103,7 +103,8 @@
         { "title": "紀錄組 組員", "period": "2021", "active": false },
         { "title": "紀錄組 組員", "period": "2022", "active": false },
         { "title": "紀錄組 組員", "period": "2023", "active": false },
-        { "title": "紀錄組 組員", "period": "2024", "active": false }
+        { "title": "紀錄組 組員", "period": "2024", "active": false },
+        { "title": "紀錄組 組員", "period": "2025", "active": true }
       ]
     },
     {
@@ -122,7 +123,8 @@
         { "title": "會眾", "period": "2021", "active": false },
         { "title": "會眾", "period": "2022", "active": false },
         { "title": "會眾", "period": "2023", "active": false },
-        { "title": "會眾", "period": "2024", "active": false }
+        { "title": "會眾", "period": "2024", "active": false },
+        { "title": "會眾", "period": "2025", "active": false }
       ]
     },
     {
@@ -132,9 +134,10 @@
       ]
     },
     {
-      "organization": "GDG DevFest",
+      "organization": "Google Developer Group",
       "positions": [
-        { "title": "Taipei 工作人員", "period": "2020", "active": false }
+        { "title": "DevFest Taipei 工作人員", "period": "2020", "active": false },
+        { "title": "Google I/O Extended 2025 Taipei 攝影組員", "period": "2025", "active": true }
       ]
     }
   ],
@@ -142,7 +145,8 @@
     {
       "organization": "上岸音樂節",
       "positions": [
-        { "title": "相手", "period": "2024", "active": false }
+        { "title": "相手", "period": "2024", "active": false },
+        { "title": "相手", "period": "2025", "active": false }
       ]
     }
   ]
