@@ -114,7 +114,8 @@
         { "title": "平面攝影組 組員", "period": "2021", "active": false },
         { "title": "平面攝影組 組員", "period": "2022", "active": false },
         { "title": "攝影組 組員", "period": "2023", "active": false },
-        { "title": "攝影組 組員", "period": "2024", "active": false }
+        { "title": "攝影組 組員", "period": "2024", "active": false },
+        { "title": "攝影組 組員", "period": "2025", "active": true }
       ]
     },
     {
