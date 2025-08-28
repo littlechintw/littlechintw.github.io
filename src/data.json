@@ -13,7 +13,6 @@
   "stats": [
     { "name": "Me", "value": "Photographer, Coder" },
     { "name": "Work", "value": "Software Engineer, SQA Engineer" },
-    { "name": "Future?", "value": "Unlimited" }
   ],
   "works": [
     {
@@ -79,7 +78,8 @@
     {
       "organization": "Developer Student Clubs Google 學生開發者社群",
       "positions": [
-        { "title": "NTPU Lead", "period": "2019 – 2020", "active": false }
+        { "title": "NTPU Lead", "period": "2019 – 2020", "active": false },
+        { "title": "NTPU 社師", "period": "2025 – 2026", "active": true }
       ]
     },
     {
@@ -104,7 +104,7 @@
         { "title": "紀錄組 組員", "period": "2022", "active": false },
         { "title": "紀錄組 組員", "period": "2023", "active": false },
         { "title": "紀錄組 組員", "period": "2024", "active": false },
-        { "title": "紀錄組 組員", "period": "2025", "active": true }
+        { "title": "紀錄組 組員", "period": "2025", "active": false }
       ]
     },
     {
@@ -115,7 +115,7 @@
         { "title": "平面攝影組 組員", "period": "2022", "active": false },
         { "title": "攝影組 組員", "period": "2023", "active": false },
         { "title": "攝影組 組員", "period": "2024", "active": false },
-        { "title": "攝影組 組員", "period": "2025", "active": true }
+        { "title": "攝影組 組員", "period": "2025", "active": false }
       ]
     },
     {
@@ -138,7 +138,7 @@
       "organization": "Google Developer Group",
       "positions": [
         { "title": "DevFest Taipei 工作人員", "period": "2020", "active": false },
-        { "title": "Google I/O Extended 2025 Taipei 攝影組員", "period": "2025", "active": true }
+        { "title": "Google I/O Extended 2025 Taipei 攝影組員", "period": "2025", "active": false }
       ]
     }
   ],
