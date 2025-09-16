@@ -2,7 +2,7 @@
   "profile": {
     "name": "littlechin",
     "avatar": "https://www.gravatar.com/avatar/c87cbee0a4a96655bd7366b56be7a18a",
-    "description": "我是小群，但，你怎麼在這？"
+    "description": "嘿，我小群啦"
   },
   "links": [
     { "name": "Resume", "href": "resume" },
@@ -49,6 +49,12 @@
         { "title": "110 學研攻擊手", "period": "2021", "active": false },
         { "title": "111 學研攻擊手", "period": "2022", "active": false },
         { "title": "112 學研攻擊手", "period": "2023", "active": false }
+      ]
+    },
+    {
+      "organization": "教育體系資安攻防演練",
+      "positions": [
+        { "title": "114 攻防檢測員", "period": "2025", "active": false }
       ]
     },
     {
