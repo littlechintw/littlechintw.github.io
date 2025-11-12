@@ -16,6 +16,16 @@
   ],
   "works": [
     {
+      "company": "🤫 Secret HA",
+      "positions": [
+        {
+          "title": "QA Engineer",
+          "period": "2025/10 - Now",
+          "active": true
+        }
+      ]
+    },
+    {
       "company": "HP Inc.",
       "positions": [
         {
@@ -25,8 +35,8 @@
         },
         {
           "title": "Software / System Engineer",
-          "period": "2024/03 - Now",
-          "active": true
+          "period": "2024/03 - 2025/09",
+          "active": false
         }
       ]
     },
@@ -144,7 +154,8 @@
       "organization": "Google Developer Group",
       "positions": [
         { "title": "DevFest Taipei 工作人員", "period": "2020", "active": false },
-        { "title": "Google I/O Extended 2025 Taipei 攝影組員", "period": "2025", "active": false }
+        { "title": "Google I/O Extended 2025 Taipei 攝影組 組員", "period": "2025", "active": false },
+        { "title": "DevFest Taipei 2025 紀錄組 組長", "period": "2025", "active": true }
       ]
     }
   ],
