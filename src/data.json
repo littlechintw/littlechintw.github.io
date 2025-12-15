@@ -8,7 +8,8 @@
     { "name": "Resume", "href": "resume" },
     { "name": "LinkedIn", "href": "https://www.linkedin.com/in/littlechin" },
     { "name": "GitHub", "href": "https://github.com/littlechintw" },
-    { "name": "Email", "href": "mailto:littlechintw+page@gmail.com" }
+    { "name": "Email", "href": "mailto:littlechintw+page@gmail.com" },
+    { "name": "Reserve", "href": "https://calendar.app.google/781XypDz2z6PXkq66" }
   ],
   "stats": [
     { "name": "Me", "value": "Photographer, Coder, Traveler?" },
