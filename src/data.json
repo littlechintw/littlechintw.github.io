@@ -159,7 +159,7 @@
       "positions": [
         { "title": "DevFest Taipei 工作人員", "period": "2020", "active": false },
         { "title": "Google I/O Extended 2025 Taipei 攝影組 組員", "period": "2025", "active": false },
-        { "title": "DevFest Taipei 2025 紀錄組 組長", "period": "2025", "active": true }
+        { "title": "DevFest Taipei 2025 紀錄組 組長", "period": "2025", "active": false }
       ]
     }
   ],
