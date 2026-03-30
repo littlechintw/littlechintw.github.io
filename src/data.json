@@ -111,7 +111,7 @@
         { "title": "紀錄組 組員", "period": "2024", "active": false },
         { "title": "Hackathon 紀錄組 組員", "period": "2024", "active": false },
         { "title": "會眾", "period": "2025", "active": false },
-        { "title": "會眾", "period": "2025", "active": false }
+        { "title": "會眾", "period": "2026", "active": false }
       ]
     },
     {
@@ -151,7 +151,7 @@
       "positions": [
         { "title": "Hackath43n 攝影", "period": "2021/03", "active": false },
         { "title": "Summit 2024 紀錄組 組員", "period": "2024", "active": false },
-        { "title": "Summit 2026 紀錄組 組員", "period": "2026", "active" true }
+        { "title": "Summit 2026 紀錄組 組員", "period": "2026", "active": true }
       ]
     },
     {
