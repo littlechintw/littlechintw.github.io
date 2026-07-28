@@ -1,10 +1,9 @@
 import { createApp } from 'vue'
-// import './style.css'
 import './index.css'
 import App from './App.vue'
 
-import VueGtag from "vue-gtag";
+import { createGtag } from 'vue-gtag'
 
-createApp(App).use(VueGtag, {
-  config: { id: "G-VGDKRYEE2D" }
-}).mount('#app')
+const gtag = createGtag({ tagId: 'G-VGDKRYEE2D' })
+
+createApp(App).use(gtag).mount('#app')
