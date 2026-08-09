@@ -17,36 +17,13 @@
         }
       })();
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VGDKRYEE2D"></script>
-    <script>
-      (function () {
-        const redirectUrl = 'https://www.instagram.com/littlechinright'
-
-        window.dataLayer = window.dataLayer || []
-        function gtag() { dataLayer.push(arguments) }
-        window.gtag = gtag
-        gtag('js', new Date())
-        gtag('config', 'G-VGDKRYEE2D', { send_page_view: true })
-
-        const redirectNow = () => window.location.replace(redirectUrl)
-        const fallbackTimer = setTimeout(redirectNow, 1200)
-
-        gtag('event', 'redirect_to_instagram', {
-          event_category: 'navigation',
-          event_label: redirectUrl,
-          transport_type: 'beacon',
-          event_callback: () => {
-            clearTimeout(fallbackTimer)
-            redirectNow()
-          }
-        })
-      })()
-    </script>
   </head>
   <body>
     <noscript>
-      <meta http-equiv="refresh" content="0;url=https://www.instagram.com/littlechinright">
-      <strong>正在跳轉到 Instagram：<a href="https://www.instagram.com/littlechinright">https://www.instagram.com/littlechinright</a></strong>
+      <strong>我是小群，是個攝影師與程式設計師。除了熱愛創造新事物，也喜歡在城市與程式間穿梭，希望讓更多人能夠看見世界，也可以讓更多人使用我所創造出的工具。</strong>
     </noscript>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+    <!-- built files will be auto injected -->
   </body>
 </html>
