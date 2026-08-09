@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Redirecting to Instagram</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VGDKRYEE2D"></script>
+    <script>
+      (function () {
+        const redirectUrl = 'https://www.instagram.com/littlechinright'
+
+        window.dataLayer = window.dataLayer || []
+        function gtag() { dataLayer.push(arguments) }
+        window.gtag = gtag
+        gtag('js', new Date())
+        gtag('config', 'G-VGDKRYEE2D', { page_path: '/ig', send_page_view: true })
+
+        const redirectNow = () => window.location.replace(redirectUrl)
+        const fallbackTimer = setTimeout(redirectNow, 1200)
+
+        gtag('event', 'redirect_to_instagram', {
+          event_category: 'navigation',
+          event_label: redirectUrl,
+          transport_type: 'beacon',
+          event_callback: () => {
+            clearTimeout(fallbackTimer)
+            redirectNow()
+          }
+        })
+      })()
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=https://www.instagram.com/littlechinright">
+      <strong>正在跳轉到 Instagram：<a href="https://www.instagram.com/littlechinright">https://www.instagram.com/littlechinright</a></strong>
+    </noscript>
+  </body>
+</html>
