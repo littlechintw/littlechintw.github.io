@@ -87,8 +87,7 @@
     {
       "organization": "教育體系資安攻防演練",
       "positions": [
-        { "title": "114 攻防檢測員", "period": "2025", "active": false },
-        { "title": "115 攻防檢測員", "period": "2026", "active": true }
+        { "title": "114 攻防檢測員", "period": "2025", "active": false }
       ]
     },
     {
@@ -146,7 +145,7 @@
         { "title": "紀錄組 組員", "period": "2023", "active": false },
         { "title": "紀錄組 組員", "period": "2024", "active": false },
         { "title": "紀錄組 組員", "period": "2025", "active": false },
-        { "title": "紀錄組 組員", "period": "2026", "active": true }
+        { "title": "紀錄組 組員", "period": "2026", "active": false }
       ]
     },
     {
@@ -158,7 +157,7 @@
         { "title": "攝影組 組員", "period": "2023", "active": false },
         { "title": "攝影組 組員", "period": "2024", "active": false },
         { "title": "攝影組 組員", "period": "2025", "active": false },
-        { "title": "攝影組 組員", "period": "2026", "active": true }
+        { "title": "攝影組 組員", "period": "2026", "active": false }
       ]
     },
     {
@@ -193,7 +192,8 @@
       "organization": "上岸音樂節",
       "positions": [
         { "title": "相手", "period": "2024", "active": false },
-        { "title": "相手", "period": "2025", "active": false }
+        { "title": "相手", "period": "2025", "active": false },
+        { "title": "相手", "period": "2026", "active": false }
       ]
     }
   ]
