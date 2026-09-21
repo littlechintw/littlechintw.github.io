@@ -87,7 +87,8 @@
     {
       "organization": "教育體系資安攻防演練",
       "positions": [
-        { "title": "114 攻防檢測員", "period": "2025", "active": false }
+        { "title": "114 攻防檢測員", "period": "2025", "active": false },
+        { "title": "115 攻防檢測員", "period": "2026", "active": false }
       ]
     },
     {
