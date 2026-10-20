@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeSections from '../components/HomeSections.vue';
+import { formatDate, getPosts, isoDate, postUrl, readingTime } from '../lib/posts';
+
+const posts = await getPosts();
+const latest = posts.slice(0, 3).map((post) => ({
+  title: post.data.title,
+  href: postUrl(post),
+  date: formatDate(post.data.pubDate),
+  isoDate: isoDate(post.data.pubDate),
+  description: post.data.description,
+  minutes: readingTime(post.body).minutes,
+  tags: post.data.tags,
+}));
+
+const description =
+  '小群（littlechin）的個人網站。攝影師與程式設計師，記錄開發筆記、資安與社群活動、研討會攝影，以及廁所地圖、音樂祭行程規劃等自製工具。';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'littlechin',
+    alternateName: '小群',
+    url: 'https://littlechin.tw',
+    image: 'https://www.gravatar.com/avatar/c87cbee0a4a96655bd7366b56be7a18a?s=512',
+    jobTitle: 'QA Engineer',
+    sameAs: [
+      'https://www.linkedin.com/in/littlechin',
+      'https://github.com/littlechintw',
+      'https://www.instagram.com/littlechinright',
+      'https://medium.com/@littlechintw',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'littlechin.tw',
+    url: 'https://littlechin.tw',
+    inLanguage: 'zh-TW',
+  },
+];
+---
+<BaseLayout title="littlechin｜小群的個人網站" description={description} jsonLd={jsonLd}>
+  <HomeSections client:load posts={latest} totalPosts={posts.length} />
+</BaseLayout>

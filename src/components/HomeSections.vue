@@ -1,23 +1,24 @@
 <template>
-  <div class="min-h-screen bg-black text-white">
+  <div ref="root">
     <!-- Hero -->
     <div class="relative overflow-hidden">
       <div
         class="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[36rem] w-[60rem] -translate-x-1/2 rounded-full bg-violet-600/20 blur-[120px]"
         aria-hidden="true" />
 
-      <div class="mx-auto max-w-6xl px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
+      <div class="mx-auto max-w-6xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-20 lg:px-8">
         <div class="fade-in-element">
           <div class="h-20 w-20 overflow-hidden rounded-2xl ring-1 ring-white/10 hover-scale">
-            <img :src="data.profile.avatar" class="h-full w-full object-cover" />
+            <img :src="data.profile.avatar" :alt="`${data.profile.name} 的頭像`" width="80" height="80" class="h-full w-full object-cover" />
           </div>
           <h1 class="mt-8 text-4xl font-semibold tracking-tight sm:text-5xl">{{ data.profile.name }}</h1>
           <p class="mt-4 max-w-xl text-base leading-7 text-gray-300">{{ data.profile.description }}</p>
+          <p v-if="data.profile.intro" class="mt-3 max-w-2xl text-base leading-7 text-gray-400">{{ data.profile.intro }}</p>
         </div>
 
         <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 fade-in-element animation-delay-150">
           <a v-for="link in data.links" :key="link.name" :href="link.href" target="_blank" rel="noopener"
-            class="link-hover text-sm font-medium text-gray-200">
+            class="link-hover text-sm font-medium text-gray-200" data-ga="social_click" :data-ga-label="link.name">
             {{ link.name }} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -33,18 +34,44 @@
 
     <div class="mx-auto max-w-6xl px-6 pb-12 lg:px-8">
       <div class="lg:grid lg:grid-cols-[1fr_180px] lg:gap-16">
-        <main>
+        <div>
+          <!-- Writing -->
+          <section id="writing" class="scroll-reveal scroll-mt-24 py-12">
+            <div class="flex items-baseline justify-between gap-4">
+              <div class="flex items-baseline gap-3">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">01</span>
+                <h2 class="text-lg font-semibold text-white">Writing</h2>
+              </div>
+              <a href="/blog/" class="link-hover text-sm font-medium text-gray-300" data-ga="nav_click" data-ga-label="所有文章">
+                所有文章<span v-if="totalPosts">（{{ totalPosts }}）</span> <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <a v-for="post in posts" :key="post.href" :href="post.href" class="project-card group"
+                data-ga="post_click" :data-ga-label="post.title">
+                <div class="flex flex-wrap items-center gap-x-3 text-xs text-gray-400">
+                  <time :datetime="post.isoDate">{{ post.date }}</time>
+                  <span aria-hidden="true">·</span>
+                  <span>約 {{ post.minutes }} 分鐘</span>
+                </div>
+                <h3 class="mt-2 text-sm font-semibold text-gray-50 group-hover:text-violet-200">{{ post.title }}</h3>
+                <p class="mt-2 text-sm leading-6 text-gray-300">{{ post.description }}</p>
+                <p v-if="post.tags.length" class="mt-3 text-xs text-gray-400">{{ post.tags.map(tag => '#' + tag).join('　') }}</p>
+              </a>
+            </div>
+          </section>
+
           <!-- Projects -->
           <section id="projects" class="scroll-reveal scroll-mt-24 py-12">
             <div class="flex items-baseline gap-3">
-              <span class="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">01</span>
-              <h3 class="text-lg font-semibold text-white">Projects</h3>
+              <span class="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">02</span>
+              <h2 class="text-lg font-semibold text-white">Projects</h2>
             </div>
             <div class="mt-8 grid gap-4 sm:grid-cols-2">
               <a v-for="project in data.projects" :key="project.url" :href="project.url" target="_blank" rel="noopener"
-                class="project-card group">
+                class="project-card group" data-ga="project_click" :data-ga-label="project.name">
                 <div class="flex items-center justify-between gap-4">
-                  <h4 class="text-sm font-semibold text-gray-50 group-hover:text-violet-200">{{ project.name }}</h4>
+                  <h3 class="text-sm font-semibold text-gray-50 group-hover:text-violet-200">{{ project.name }}</h3>
                   <span aria-hidden="true" class="text-gray-500 transition-transform group-hover:translate-x-1 group-hover:text-violet-200">&rarr;</span>
                 </div>
                 <p class="mt-2 text-sm leading-6 text-gray-300">{{ project.description }}</p>
@@ -57,15 +84,15 @@
           <section v-for="(section, sIndex) in timelineSections" :key="section.title" :id="section.id"
             class="scroll-reveal scroll-mt-24 py-12">
             <div class="flex items-baseline gap-3">
-              <span class="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">{{ String(sIndex + 2).padStart(2, '0') }}</span>
-              <h3 class="text-lg font-semibold text-white">{{ section.title }}</h3>
+              <span class="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">{{ String(sIndex + 3).padStart(2, '0') }}</span>
+              <h2 class="text-lg font-semibold text-white">{{ section.title }}</h2>
             </div>
             <dl class="mt-8 divide-y divide-white/10 border-t border-white/10">
               <div v-for="item in section.items" :key="item[section.key]"
                 class="item-hover grid grid-cols-1 gap-3 py-6 lg:grid-cols-[1fr,2fr] lg:gap-6">
                 <dt class="text-sm font-medium text-gray-100">{{ item[section.key] }}</dt>
                 <div class="space-y-2">
-                  <dd v-for="position in item.positions" :key="position.period"
+                  <dd v-for="position in item.positions" :key="position.period + position.title"
                     class="flex flex-wrap items-center gap-x-2 text-sm leading-6 text-gray-300">
                     <span :class="['period-badge', { 'period-badge--active': position.active }]">{{ position.period }}</span>
                     {{ position.title }}
@@ -74,10 +101,10 @@
               </div>
             </dl>
           </section>
-        </main>
+        </div>
 
         <aside class="hidden lg:block">
-          <nav class="sticky top-24 relative border-l border-white/10 pl-5">
+          <nav class="sticky top-24 relative border-l border-white/10 pl-5" aria-label="頁內目錄">
             <span class="toc-indicator" aria-hidden="true" :style="{ transform: `translateY(${activeIndex * 32}px)` }" />
             <a v-for="item in tocItems" :key="item.id" :href="`#${item.id}`"
               :class="['toc-link', { 'toc-link--active': activeSection === item.id }]">
@@ -86,47 +113,21 @@
           </nav>
         </aside>
       </div>
-
-      <!-- 保留空間，避免內容被固定 footer 遮住 -->
-      <div class="h-28 sm:h-16" aria-hidden="true" />
     </div>
-
-    <footer class="footer-bar fixed inset-x-0 bottom-0 z-30 bg-black/90 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl flex-col items-center gap-2 px-6 py-3 text-sm text-gray-400 sm:flex-row sm:justify-between lg:px-8">
-        <p>
-          &copy; 2019 - {{ new Date().getFullYear() }}
-          <a href="https://littlechin.tw" class="text-gray-400 hover:text-violet-200">littlechin.tw</a>. All rights reserved.
-        </p>
-        <nav class="flex gap-4">
-          <a href="https://www.linkedin.com/in/littlechin" target="_blank" rel="noopener" class="social-icon-hover text-gray-500 hover:text-violet-200">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="fill-current">
-              <path
-                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-            </svg>
-          </a>
-          <a href="https://github.com/littlechintw" target="_blank" rel="noopener" class="social-icon-hover text-gray-500 hover:text-violet-200">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="fill-current">
-              <path
-                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-            </svg>
-          </a>
-          <a href="mailto:littlechintw+page@gmail.com" target="_blank" rel="noopener" class="social-icon-hover text-gray-500 hover:text-violet-200">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="fill-current">
-              <path
-                d="M24 21h-24v-18h24v18zm-23-16.477v15.477h22v-15.477l-10.999 10-11.001-10zm21.089-.523h-20.176l10.088 9.171 10.088-9.171z" />
-            </svg>
-          </a>
-        </nav>
-      </div>
-    </footer>
   </div>
 </template>
 
 <script setup>
 import { reactive, computed, ref, onMounted } from 'vue'
-import jsonData from './data.json'
+import jsonData from '../data.json'
+
+const props = defineProps({
+  posts: { type: Array, default: () => [] },
+  totalPosts: { type: Number, default: 0 },
+})
 
 const data = reactive(jsonData)
+const root = ref(null)
 
 const timelineSections = computed(() => [
   { id: 'works', title: 'Works', items: data.works, key: 'company' },
@@ -136,41 +137,45 @@ const timelineSections = computed(() => [
 ])
 
 const tocItems = computed(() => [
+  { id: 'writing', label: 'Writing' },
   { id: 'projects', label: 'Projects' },
   ...timelineSections.value.map(section => ({ id: section.id, label: section.title })),
 ])
 
-const activeSection = ref('projects')
+const activeSection = ref('writing')
 const activeIndex = computed(() => {
   const index = tocItems.value.findIndex(item => item.id === activeSection.value)
   return index === -1 ? 0 : index
 })
 
 onMounted(() => {
+  const el = root.value
+  if (!el) return
+
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
+        entry.target.classList.add('revealed')
       }
-    });
-  }, { threshold: 0.1 });
+    })
+  }, { threshold: 0.1 })
 
-  document.querySelectorAll('.scroll-reveal').forEach(element => {
-    revealObserver.observe(element);
-  });
+  el.querySelectorAll('.scroll-reveal').forEach(element => {
+    revealObserver.observe(element)
+  })
 
   const spyObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        activeSection.value = entry.target.id;
+        activeSection.value = entry.target.id
       }
-    });
-  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    })
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 })
 
-  document.querySelectorAll('main section[id]').forEach(element => {
-    spyObserver.observe(element);
-  });
-});
+  el.querySelectorAll('section[id]').forEach(element => {
+    spyObserver.observe(element)
+  })
+})
 </script>
 
 <style scoped>
@@ -193,16 +198,18 @@ onMounted(() => {
   animation-delay: 300ms;
 }
 
-/* 滾動顯示動畫 */
+/* 滾動顯示動畫；沒有 JS 時維持可見 */
 .scroll-reveal {
-  opacity: 0;
-  transform: translateY(24px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.scroll-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
+@media (scripting: enabled) {
+  .scroll-reveal:not(.revealed) {
+    opacity: 0;
+    transform: translateY(24px);
+  }
 }
 
 /* 懸停縮放效果 */
@@ -260,17 +267,7 @@ onMounted(() => {
   width: 100%;
 }
 
-/* 社交圖標動畫 */
-.social-icon-hover {
-  transition: transform 0.2s ease, color 0.2s ease, filter 0.2s ease;
-}
-
-.social-icon-hover:hover {
-  transform: translateY(-2px);
-  filter: drop-shadow(0 0 6px rgba(196, 181, 253, 0.5));
-}
-
-/* Project 卡片 */
+/* 卡片 */
 .project-card {
   display: block;
   border-radius: 0.75rem;
@@ -337,14 +334,5 @@ onMounted(() => {
   background: rgb(196 181 253);
   box-shadow: 0 0 8px rgba(196, 181, 253, 0.6);
   transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-/* Footer 上緣 */
-.footer-bar::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(196, 181, 253, 0.6), transparent);
 }
 </style>

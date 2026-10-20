@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { collectTags, getPosts, tagUrl } from '../../lib/posts';
+
+const posts = await getPosts();
+const tags = collectTags(posts);
+const description = '小群的文章：開發筆記、資安與社群活動紀錄、實習與職涯心得、攝影與工具開發的過程。';
+---
+<BaseLayout title="文章" description={description}>
+  <section class="mx-auto max-w-6xl px-6 pt-16 pb-8 lg:px-8">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">Writing</p>
+    <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">文章</h1>
+    <p class="mt-4 max-w-2xl text-base leading-7 text-gray-300">{description}</p>
+    {tags.length > 0 && (
+      <nav aria-label="標籤" class="mt-8 flex flex-wrap gap-2">
+        {tags.map(({ tag, count }) => (
+          <a href={tagUrl(tag)} class="tag-chip">#{tag}<span class="ml-1 text-gray-500">{count}</span></a>
+        ))}
+      </nav>
+    )}
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 pb-12 lg:px-8" aria-label="文章列表">
+    <p class="mb-6 text-sm text-gray-400">共 {posts.length} 篇</p>
+    <div class="grid gap-4 sm:grid-cols-2">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .tag-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8125rem;
+    color: rgb(209 213 219);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .tag-chip:hover {
+    border-color: rgba(196, 181, 253, 0.7);
+    color: rgb(221 214 254);
+  }
+</style>

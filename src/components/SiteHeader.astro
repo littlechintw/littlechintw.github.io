@@ -1,0 +1,68 @@
+---
+const path = Astro.url.pathname;
+const avatar = 'https://www.gravatar.com/avatar/c87cbee0a4a96655bd7366b56be7a18a?s=64';
+
+const items = [
+  { href: '/', label: '首頁', active: path === '/' || path === '/index.html' },
+  { href: '/blog/', label: '文章', active: path.startsWith('/blog') },
+  { href: '/about/', label: '關於', active: path.startsWith('/about') },
+  { href: '/contact/', label: '聯絡', active: path.startsWith('/contact') },
+];
+---
+<header class="sticky top-0 z-40 border-b border-white/10 bg-black/80 backdrop-blur">
+  <div class="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-6 lg:px-8">
+    <a href="/" class="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-white" data-ga="nav_click" data-ga-label="logo">
+      <img src={avatar} alt="" width="24" height="24" class="h-6 w-6 rounded-md ring-1 ring-white/10" />
+      <span>littlechin</span>
+    </a>
+    <nav aria-label="主選單" class="flex items-center gap-0.5 sm:gap-1">
+      {items.map((item) => (
+        <a
+          href={item.href}
+          aria-current={item.active ? 'page' : undefined}
+          class:list={['nav-tab', { 'nav-tab--active': item.active }]}
+          data-ga="nav_click"
+          data-ga-label={item.label}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav-tab {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 2.25rem;
+    padding: 0 0.625rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(209 213 219);
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .nav-tab:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-tab--active {
+    color: rgb(221 214 254);
+  }
+
+  .nav-tab--active::after {
+    content: '';
+    position: absolute;
+    left: 0.625rem;
+    right: 0.625rem;
+    bottom: -0.45rem;
+    height: 2px;
+    border-radius: 9999px;
+    background: rgb(196 181 253);
+    box-shadow: 0 0 8px rgba(196, 181, 253, 0.6);
+  }
+</style>

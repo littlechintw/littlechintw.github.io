@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../data.json';
+
+const description =
+  '關於小群（littlechin）：攝影師、程式設計師、QA Engineer。這裡記錄我做過的工具、參與的資安與開源社群、研討會攝影，以及這個網站的目的與做法。';
+---
+<BaseLayout title="關於" description={description}>
+  <article class="mx-auto max-w-3xl px-6 pt-16 pb-12 lg:px-8">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">About</p>
+    <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">關於我，以及這個網站</h1>
+
+    <div class="article-prose prose prose-invert mt-10 max-w-none prose-headings:tracking-tight prose-p:leading-8">
+      <p>
+        嘿，我是小群，網路上通常叫 littlechin。我是個攝影師，也是個程式設計師，目前在一間企業擔任 QA Engineer，負責軟體品質與測試。
+        除了熱愛創造新事物，也喜歡在城市與程式之間穿梭，希望讓更多人能夠看見世界，也讓更多人用得到我做出來的工具。
+      </p>
+
+      <h2>我在做什麼</h2>
+      <p>
+        工作上，我從軟體測試開始。大學時在 HP Inc. 擔任 Software Testing Intern，畢業後回到同一間公司擔任 Software / System Engineer，
+        之後轉為專職的 QA Engineer。測試讓我習慣從使用者的角度把產品走過一遍，這個習慣也一路帶進我自己的 side project。
+      </p>
+      <p>
+        2021 年夏天，我參加了行政院公共數位創新空間 PDIS 的 Ray 5.0 見習計畫，和組員一起用使用者訪談、Wireframe、Prototype 的方式改善政府網站的數位服務體驗。
+        那兩個月的過程寫成了一系列文章，收在<a href="/blog/tag/PDIS/">#PDIS</a>。
+      </p>
+
+      <h2>資安與社群</h2>
+      <p>
+        資安是我在大學時期投入最多時間的領域。從 2019 年起我連續四屆參加臺灣好厲駭高階資安人才培訓計畫並結業，也上過 AIS3 新型態資安實務主題課程的數位鑑識組。
+        2020 到 2023 年，我以學研攻擊手的身分參與行政院國家資通安全網路攻防演練，近年則在教育體系資安攻防演練擔任攻防檢測員。
+      </p>
+      <p>
+        社群方面，我在國立臺北大學成立並帶領 Google Developer Student Clubs（GDSC NTPU），現在則以社師的身分回去陪學弟妹。
+        SITCON 學生計算機年會、COSCUP 開源人年會、HITCON 台灣駭客年會、g0v 台灣零時政府與 Google Developer Group 的活動裡，常常可以在紀錄組或攝影組看到我拿著相機。
+      </p>
+
+      <h2>攝影</h2>
+      <p>
+        相機是我參與社群的方式之一。這幾年我幫許多技術研討會做活動紀錄，也在上岸音樂節擔任相手。
+        對我來說，拍照和寫程式很像，都是在替別人保留一個好用、好看的切面。
+      </p>
+
+      <h2>我做過的工具</h2>
+      <p>這個網站的子網域住著幾個我自己寫、自己在用的工具，全部免費，原始碼也都放在 GitHub：</p>
+      <ul>
+        {data.projects.map((project) => (
+          <li>
+            <a href={project.url} target="_blank" rel="noopener" data-ga="project_click" data-ga-label={project.name}>{project.name}</a>
+            ：{project.description}
+          </li>
+        ))}
+      </ul>
+
+      <h2>這個網站</h2>
+      <p>
+        littlechin.tw 是我的個人網站。首頁放的是我的經歷與作品，<a href="/blog/">文章</a>區則用來記錄開發筆記、資安學習、社群活動與攝影心得。
+        過去寫在 Medium 上的文章也陸續搬了過來，之後的新文章會直接發表在這裡。
+      </p>
+      <p>
+        網站本身是用 Astro 與 Tailwind CSS 做的純靜態網站，部署在 GitHub Pages 上，
+        原始碼公開在 <a href="https://github.com/littlechintw/littlechintw.github.io" target="_blank" rel="noopener">GitHub</a>。
+        網站使用 Google Analytics 了解流量，詳細說明請看<a href="/privacy/">隱私權政策</a>。
+      </p>
+      <p>
+        有任何想聊的，歡迎到<a href="/contact/">聯絡</a>頁找我。
+      </p>
+    </div>
+  </article>
+</BaseLayout>

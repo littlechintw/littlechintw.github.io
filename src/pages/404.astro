@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPosts, postUrl } from '../lib/posts';
+
+const posts = (await getPosts()).slice(0, 3);
+---
+<BaseLayout title="找不到這個頁面" description="這個網址不存在，或是頁面已經搬家了。" noindex={true}>
+  <section class="mx-auto max-w-3xl px-6 pt-24 pb-16 lg:px-8">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">404</p>
+    <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">找不到這個頁面</h1>
+    <p class="mt-4 text-base leading-7 text-gray-300">
+      這個網址不存在，或是頁面已經搬家了。你可以回到
+      <a href="/" class="text-violet-300 hover:text-violet-200">首頁</a>、看看
+      <a href="/blog/" class="text-violet-300 hover:text-violet-200">所有文章</a>，或者
+      <a href="/contact/" class="text-violet-300 hover:text-violet-200">告訴我</a>哪個連結壞掉了。
+    </p>
+    {posts.length > 0 && (
+      <div class="mt-12">
+        <h2 class="text-sm font-semibold uppercase tracking-widest text-gray-400">最近的文章</h2>
+        <ul class="mt-4 space-y-3">
+          {posts.map((post) => (
+            <li>
+              <a href={postUrl(post)} class="text-gray-100 hover:text-violet-200">{post.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </section>
+</BaseLayout>

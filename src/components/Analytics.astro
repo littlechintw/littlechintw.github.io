@@ -1,0 +1,66 @@
+---
+/**
+ * Google Analytics 4（GA_ID 與舊站相同）。
+ * 全站每一頁都會載入，不再只有首頁 SPA 才有。
+ * 除了預設的 page_view，另外補上：
+ *   - click_outbound：點擊站外連結（含網域、網址、文字）
+ *   - contact_click：點擊 mailto
+ *   - 任何 <a data-ga="事件名稱" data-ga-label="標籤">：自訂事件（專案卡片、社群連結、導覽列…）
+ * 文章頁另外有 article_view / article_complete（見 src/pages/blog/[...id].astro）。
+ * GA 後台建議同時打開「加強型評估」的捲動與站外連結。
+ */
+const GA_ID = 'G-VGDKRYEE2D';
+---
+<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+<script is:inline define:vars={{ GA_ID }}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', GA_ID, { send_page_view: true });
+
+  document.addEventListener(
+    'click',
+    function (event) {
+      var target = event.target;
+      var anchor = target && target.closest ? target.closest('a[href]') : null;
+      if (!anchor) return;
+
+      var url;
+      try {
+        url = new URL(anchor.getAttribute('href'), window.location.href);
+      } catch (error) {
+        return;
+      }
+
+      var text = (anchor.getAttribute('aria-label') || anchor.textContent || '').trim().slice(0, 100);
+      var custom = anchor.getAttribute('data-ga');
+
+      if (custom) {
+        gtag('event', custom, {
+          event_label: anchor.getAttribute('data-ga-label') || text,
+          link_url: url.href,
+          link_domain: url.host,
+          page_path: window.location.pathname,
+        });
+        return;
+      }
+
+      if (url.protocol === 'mailto:') {
+        gtag('event', 'contact_click', { method: 'email', page_path: window.location.pathname });
+        return;
+      }
+
+      if (/^https?:$/.test(url.protocol) && url.host !== window.location.host) {
+        gtag('event', 'click_outbound', {
+          link_url: url.href,
+          link_domain: url.host,
+          link_text: text,
+          outbound: true,
+          page_path: window.location.pathname,
+        });
+      }
+    },
+    { capture: true }
+  );
+</script>

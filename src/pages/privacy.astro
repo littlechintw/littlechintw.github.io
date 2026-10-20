@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const updated = '2026 年 10 月 20 日';
+const description =
+  'littlechin.tw 與其子網域的隱私權政策：我們如何使用 Cookie、Google Analytics 與 Google AdSense，收集哪些資料、保留多久，以及你可以怎麼選擇。';
+---
+<BaseLayout title="隱私權政策" description={description}>
+  <article class="mx-auto max-w-3xl px-6 pt-16 pb-12 lg:px-8">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">Privacy Policy</p>
+    <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">隱私權政策</h1>
+    <p class="mt-3 text-sm text-gray-400">最後更新：{updated}</p>
+
+    <div class="article-prose prose prose-invert mt-10 max-w-none prose-headings:tracking-tight prose-p:leading-8">
+      <p>
+        littlechin.tw（以下稱「本網站」）由小群（littlechin）個人經營。這份政策說明當你瀏覽本網站時，我們會收集哪些資料、為什麼收集、如何使用，以及你可以做哪些選擇。
+        我們希望把事情講清楚，而不是用一大段法律文字帶過。
+      </p>
+
+      <h2>適用範圍</h2>
+      <p>
+        本政策適用於 <strong>littlechin.tw</strong> 以及其所有子網域，包括但不限於
+        toilets.littlechin.tw（廁所地圖）、mf.littlechin.tw（音樂祭行程規劃）、tools.littlechin.tw（工具箱）與 s.littlechin.tw（短網址服務）。
+        個別工具若有額外的資料處理方式，會在該工具的頁面另外說明。
+      </p>
+
+      <h2>我們收集哪些資料</h2>
+      <h3>自動收集的瀏覽資料</h3>
+      <p>
+        本網站使用 <strong>Google Analytics 4</strong> 了解網站的使用情形，包括你瀏覽了哪些頁面、停留多久、從哪裡連過來、使用的裝置與瀏覽器類型，以及大致的地理位置（國家或城市層級）。
+        Google Analytics 4 不會記錄或儲存你的完整 IP 位址。這些資料是彙整後的統計數字，我們無法用它們辨識出你是誰。
+      </p>
+      <p>
+        除了頁面瀏覽，我們也會記錄一些互動事件，例如點擊了哪個專案連結、哪篇文章被讀完、是否點了聯絡方式。這些事件同樣不包含可以識別個人的資訊。
+      </p>
+      <h3>你主動提供的資料</h3>
+      <p>
+        當你透過 Email 或其他聯絡方式與我們聯繫時，我們會收到你的電子郵件地址與信件內容。這些資料只會用來回覆你，處理完畢後不會再做其他用途。
+      </p>
+      <h3>工具類子網域的資料</h3>
+      <ul>
+        <li><strong>廁所地圖</strong>：定位功能由你的瀏覽器處理，位置資訊只在你的裝置上用來排序附近的廁所，不會傳送到我們的伺服器，也不會被儲存。</li>
+        <li><strong>工具箱與音樂祭行程規劃</strong>：你的設定與行程主要儲存在瀏覽器的本機儲存空間（localStorage），留在你的裝置上。</li>
+        <li><strong>短網址服務</strong>：為了產生可分享的連結，服務必須儲存你輸入的網址或文字。請不要在這裡輸入密碼、個資或其他機密內容。</li>
+      </ul>
+
+      <h2>Cookie 與類似技術</h2>
+      <p>
+        本網站會使用 Cookie 與類似技術。Google Analytics 會在你的瀏覽器放置 Cookie（例如 <code>_ga</code>、<code>_ga_*</code>）以區分不同的造訪。
+        你可以透過瀏覽器設定封鎖或刪除 Cookie；封鎖後本網站的主要內容仍然可以正常瀏覽。
+      </p>
+
+      <h2>廣告（Google AdSense）</h2>
+      <p>本網站可能顯示由 Google AdSense 提供的廣告，以支持網站與各項工具的維運。關於廣告，你需要知道：</p>
+      <ul>
+        <li>第三方供應商（包括 Google）會使用 Cookie，根據使用者先前造訪本網站或其他網站的紀錄來放送廣告。</li>
+        <li>Google 使用廣告 Cookie，可以依據你造訪本網站或網際網路上其他網站的情況，向你顯示相關廣告。</li>
+        <li>你可以前往 Google 的<a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">廣告設定</a>停用個人化廣告，或到 <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">www.aboutads.info</a> 停用部分第三方供應商的個人化廣告 Cookie。</li>
+        <li>更多關於 Google 如何使用資料的說明，請參考 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google 如何使用合作夥伴網站或應用程式的資訊</a>。</li>
+      </ul>
+
+      <h2>本網站使用的第三方服務</h2>
+      <ul>
+        <li><strong>Google Analytics</strong>：流量統計。<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私權政策</a></li>
+        <li><strong>Google AdSense</strong>：廣告放送。</li>
+        <li><strong>GitHub Pages</strong>：網站主機。GitHub 可能為了安全與維運目的記錄造訪者的 IP 位址。<a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub 隱私權聲明</a></li>
+        <li><strong>Cloudflare</strong>：CDN 與網路保護。<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare 隱私權政策</a></li>
+        <li><strong>Gravatar</strong>：首頁與頁首的頭像圖片由 Gravatar 提供，載入圖片時 Gravatar 會收到你的 IP 位址。</li>
+        <li><strong>OpenStreetMap</strong>：廁所地圖的地圖圖磚與地址查詢由 OpenStreetMap 及 Nominatim 提供。<a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">OSMF 隱私權政策</a></li>
+      </ul>
+
+      <h2>我們如何使用這些資料</h2>
+      <ul>
+        <li>了解哪些內容與工具對大家有用，決定接下來要寫什麼、修什麼。</li>
+        <li>找出壞掉的頁面與效能問題。</li>
+        <li>回覆你的來信。</li>
+        <li>顯示廣告以支持網站維運。</li>
+      </ul>
+      <p>我們不會販售你的資料，也不會把來信內容提供給第三方。</p>
+
+      <h2>資料保留多久</h2>
+      <p>
+        Google Analytics 的使用者層級與事件資料依我們在 Google Analytics 中的設定保留，最長 14 個月，之後只保留彙整的統計報表。
+        來信內容在回覆並處理完畢後即不再使用。
+      </p>
+
+      <h2>你的選擇</h2>
+      <ul>
+        <li>在瀏覽器中封鎖或刪除 Cookie。</li>
+        <li>安裝 <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics 不透露資訊瀏覽器外掛程式</a>，讓所有網站的 Google Analytics 都不會收到你的資料。</li>
+        <li>在 Google <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">廣告設定</a>停用個人化廣告。</li>
+        <li>如果你想知道我們是否持有你的來信資料，或希望我們刪除，請直接寫信給我們。</li>
+      </ul>
+
+      <h2>兒童隱私</h2>
+      <p>本網站的內容不針對 13 歲以下的兒童，我們也不會刻意收集兒童的個人資料。</p>
+
+      <h2>外部連結</h2>
+      <p>本網站會連到其他網站，例如 GitHub、社群平台或參考資料。這些網站有各自的隱私權政策，我們無法對其內容負責。</p>
+
+      <h2>政策更新</h2>
+      <p>當我們新增服務或改變資料處理方式時，會更新這份政策並修改頁面最上方的日期。重大變更會在首頁公告。</p>
+
+      <h2>聯絡我們</h2>
+      <p>
+        對這份政策有任何疑問，請寫信到 <a href="mailto:littlechintw+page@gmail.com">littlechintw+page@gmail.com</a>，或透過<a href="/contact/">聯絡頁</a>找到我。
+      </p>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const description = '聯絡小群（littlechin）：Email、預約聊聊、LinkedIn、GitHub、Instagram，以及回報工具問題的方式。';
+
+const channels = [
+  {
+    name: 'Email',
+    value: 'littlechintw+page@gmail.com',
+    href: 'mailto:littlechintw+page@gmail.com',
+    note: '最直接的方式。合作、邀約、網站或文章的問題都可以寄到這裡。',
+    ga: 'contact_click',
+  },
+  {
+    name: 'Book a Chat',
+    value: 'calendar.app.google',
+    href: 'https://calendar.app.google/781XypDz2z6PXkq66',
+    note: '想直接聊聊的話，挑一個我有空的時段。',
+    ga: 'contact_click',
+  },
+  {
+    name: 'Calendar',
+    value: 'ca.littlechin.tw',
+    href: 'https://ca.littlechin.tw/',
+    note: '先看看我哪些時間有空。',
+    ga: 'contact_click',
+  },
+  {
+    name: 'LinkedIn',
+    value: 'linkedin.com/in/littlechin',
+    href: 'https://www.linkedin.com/in/littlechin',
+    note: '工作經歷與職涯相關的訊息。',
+    ga: 'social_click',
+  },
+  {
+    name: 'GitHub',
+    value: 'github.com/littlechintw',
+    href: 'https://github.com/littlechintw',
+    note: '所有專案的原始碼都在這裡。',
+    ga: 'social_click',
+  },
+  {
+    name: 'Instagram',
+    value: '@littlechinright',
+    href: 'https://www.instagram.com/littlechinright',
+    note: '攝影作品與日常。',
+    ga: 'social_click',
+  },
+  {
+    name: 'Medium',
+    value: 'medium.com/@littlechintw',
+    href: 'https://medium.com/@littlechintw',
+    note: '以前的文章，現在都搬到這個網站了。',
+    ga: 'social_click',
+  },
+];
+
+const repos = [
+  { name: '廁所地圖', href: 'https://github.com/littlechintw/where-toilets/issues' },
+  { name: '音樂祭行程規劃', href: 'https://github.com/littlechintw/Music-Festival-Timeline/issues' },
+  { name: '工具箱', href: 'https://github.com/littlechintw/web-tools/issues' },
+  { name: '短網址服務', href: 'https://github.com/littlechintw/Short-Text-Tool/issues' },
+  { name: '這個網站', href: 'https://github.com/littlechintw/littlechintw.github.io/issues' },
+];
+---
+<BaseLayout title="聯絡" description={description}>
+  <section class="mx-auto max-w-3xl px-6 pt-16 pb-12 lg:px-8">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">Contact</p>
+    <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">聯絡我</h1>
+    <p class="mt-4 text-base leading-7 text-gray-300">
+      專案合作、攝影邀約、演講或社群分享、文章內容的討論，或是發現網站哪裡壞掉了，都歡迎找我。
+      我會盡快回覆，但平日白天要上班，請給我一點時間。
+    </p>
+
+    <dl class="mt-10 divide-y divide-white/10 border-t border-white/10">
+      {channels.map((channel) => (
+        <div class="grid grid-cols-1 gap-2 py-5 sm:grid-cols-[140px_1fr] sm:gap-6">
+          <dt class="text-sm font-medium text-gray-100">{channel.name}</dt>
+          <dd>
+            <a
+              href={channel.href}
+              target={channel.href.startsWith('mailto:') ? undefined : '_blank'}
+              rel={channel.href.startsWith('mailto:') ? undefined : 'noopener'}
+              class="text-sm font-medium text-violet-300 hover:text-violet-200"
+              data-ga={channel.ga}
+              data-ga-label={channel.name}
+            >
+              {channel.value}
+            </a>
+            <p class="mt-1 text-sm leading-6 text-gray-400">{channel.note}</p>
+          </dd>
+        </div>
+      ))}
+    </dl>
+
+    <h2 class="mt-14 text-lg font-semibold text-white">回報工具的問題</h2>
+    <p class="mt-3 text-sm leading-7 text-gray-300">
+      如果是子網域上的工具出問題，直接到對應的 GitHub 開 issue 最有效率，我可以在同一個地方追蹤與修正：
+    </p>
+    <ul class="mt-4 flex flex-wrap gap-2">
+      {repos.map((repo) => (
+        <li>
+          <a href={repo.href} target="_blank" rel="noopener" class="repo-chip" data-ga="project_click" data-ga-label={`issues:${repo.name}`}>{repo.name}</a>
+        </li>
+      ))}
+    </ul>
+
+    <p class="mt-14 text-sm leading-7 text-gray-400">
+      來信內容只會用來回覆你，不會用於其他用途，詳見<a href="/privacy/" class="text-violet-300 hover:text-violet-200">隱私權政策</a>。
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .repo-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8125rem;
+    color: rgb(209 213 219);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .repo-chip:hover {
+    border-color: rgba(196, 181, 253, 0.7);
+    color: rgb(221 214 254);
+  }
+</style>

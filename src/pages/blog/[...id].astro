@@ -1,0 +1,173 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatDate, getPosts, isoDate, postUrl, readingTime, tagUrl } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post, index) => ({
+    params: { id: post.id },
+    props: {
+      post,
+      // posts 是新到舊，所以「上一篇」是較新的那篇
+      newer: index > 0 ? posts[index - 1] : null,
+      older: index < posts.length - 1 ? posts[index + 1] : null,
+    },
+  }));
+}
+
+const { post, newer, older } = Astro.props;
+const { Content } = await render(post);
+const { minutes, chars } = readingTime(post.body);
+const url = new URL(postUrl(post), Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+  inLanguage: post.data.lang,
+  keywords: post.data.tags.join(', '),
+  url,
+  mainEntityOfPage: url,
+  ...(post.data.cover ? { image: new URL(post.data.cover, Astro.site).href } : {}),
+  author: { '@type': 'Person', name: 'littlechin', url: 'https://littlechin.tw' },
+  publisher: { '@type': 'Person', name: 'littlechin', url: 'https://littlechin.tw' },
+};
+---
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  type="article"
+  image={post.data.cover}
+  publishedTime={post.data.pubDate}
+  modifiedTime={post.data.updatedDate}
+  jsonLd={jsonLd}
+  noindex={post.data.draft}
+>
+  <article class="mx-auto max-w-3xl px-6 pt-16 pb-12 lg:px-8" lang={post.data.lang}>
+    <header>
+      <a href="/blog/" class="text-sm text-gray-400 hover:text-violet-200">&larr; 所有文章</a>
+      <h1 class="mt-6 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">{post.data.title}</h1>
+      <p class="mt-4 text-base leading-7 text-gray-300">{post.data.description}</p>
+      <div class="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-400">
+        <time datetime={isoDate(post.data.pubDate)}>發佈於 {formatDate(post.data.pubDate)}</time>
+        {post.data.updatedDate && (
+          <>
+            <span aria-hidden="true">·</span>
+            <time datetime={isoDate(post.data.updatedDate)}>更新於 {formatDate(post.data.updatedDate)}</time>
+          </>
+        )}
+        <span aria-hidden="true">·</span>
+        <span>約 {minutes} 分鐘，{chars.toLocaleString('zh-TW')} 字</span>
+        {post.data.draft && <span class="rounded-full border border-amber-400/50 px-2 py-0.5 text-xs text-amber-300">草稿</span>}
+      </div>
+      {post.data.tags.length > 0 && (
+        <ul class="mt-4 flex flex-wrap gap-2" aria-label="標籤">
+          {post.data.tags.map((tag) => (
+            <li>
+              <a href={tagUrl(tag)} class="tag-chip">#{tag}</a>
+            </li>
+          ))}
+        </ul>
+      )}
+      {post.data.cover && (
+        <img
+          src={post.data.cover}
+          alt={post.data.coverAlt ?? ''}
+          class="mt-8 w-full rounded-xl border border-white/10"
+          loading="eager"
+        />
+      )}
+    </header>
+
+    <div class="article-prose prose prose-invert mt-10 max-w-none prose-headings:tracking-tight prose-p:leading-8">
+      <Content />
+    </div>
+
+    {post.data.source && (
+      <p class="mt-10 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-gray-400">
+        本文原發表於
+        <a href={post.data.source.url} target="_blank" rel="noopener" class="text-violet-300 hover:text-violet-200" data-ga="source_click" data-ga-label={post.data.source.name}>{post.data.source.name}</a>
+        ，搬到這裡時做了排版整理。
+      </p>
+    )}
+
+    <div id="article-end" aria-hidden="true"></div>
+
+    <nav class="mt-12 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-2" aria-label="前後文章">
+      {older ? (
+        <a href={postUrl(older)} class="adjacent-link" data-ga="post_click" data-ga-label={older.data.title}>
+          <span class="text-xs uppercase tracking-widest text-gray-500">較早的文章</span>
+          <span class="mt-1 block text-sm font-medium text-gray-100">&larr; {older.data.title}</span>
+        </a>
+      ) : (
+        <span></span>
+      )}
+      {newer && (
+        <a href={postUrl(newer)} class="adjacent-link sm:text-right" data-ga="post_click" data-ga-label={newer.data.title}>
+          <span class="text-xs uppercase tracking-widest text-gray-500">較新的文章</span>
+          <span class="mt-1 block text-sm font-medium text-gray-100">{newer.data.title} &rarr;</span>
+        </a>
+      )}
+    </nav>
+  </article>
+</BaseLayout>
+
+<script is:inline define:vars={{ slug: post.id, title: post.data.title, tags: post.data.tags.join(','), minutes }}>
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'article_view', {
+      article_slug: slug,
+      article_title: title,
+      article_tags: tags,
+      article_minutes: minutes,
+    });
+
+    var end = document.getElementById('article-end');
+    if (end && 'IntersectionObserver' in window) {
+      var sent = false;
+      var observer = new IntersectionObserver(function (entries) {
+        if (sent) return;
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          sent = true;
+          observer.disconnect();
+          window.gtag('event', 'article_complete', { article_slug: slug, article_title: title });
+        }
+      });
+      observer.observe(end);
+    }
+  }
+</script>
+
+<style>
+  .tag-chip {
+    display: inline-flex;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    color: rgb(209 213 219);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .tag-chip:hover {
+    border-color: rgba(196, 181, 253, 0.7);
+    color: rgb(221 214 254);
+  }
+
+  .adjacent-link {
+    display: block;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 1rem 1.25rem;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .adjacent-link:hover {
+    border-color: rgba(196, 181, 253, 0.8);
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+</style>
