@@ -35,4 +35,17 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+/**
+ * 近況頁集合：src/content/now/YYYY-MM-DD.md
+ * 檔名就是日期，最新的一期會成為 /now/ 的主要內容，其餘收進歸檔。frontmatter 全部選填。
+ */
+const now = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/now' }),
+  schema: z.object({
+    title: z.string().min(1).max(80, '這一期的小標請控制在 80 字以內').optional(),
+    summary: z.string().min(1).max(160, '摘要請控制在 160 字以內').optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, now };

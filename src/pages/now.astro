@@ -1,0 +1,123 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { entryDate, getNowEntries } from '../lib/now';
+import { formatDate, isoDate } from '../lib/posts';
+
+const entries = await getNowEntries();
+const [latest, ...past] = entries;
+const latestDate = latest ? entryDate(latest) : null;
+const LatestContent = latest ? (await render(latest)).Content : null;
+const archive = await Promise.all(
+  past.map(async (entry) => ({ entry, date: entryDate(entry), Content: (await render(entry)).Content }))
+);
+
+const updatedText = latestDate ? formatDate(latestDate) : null;
+const description = updatedText
+  ? `小群的近況頁：我現在正在做、正在學、正在關注的事，最後更新於 ${updatedText}。`
+  : '小群的近況頁：我現在正在做、正在學、正在關注的事。';
+---
+<BaseLayout title="近況" description={description} modifiedTime={latestDate ?? undefined} noindex={!latest}>
+  <section class="mx-auto max-w-3xl px-6 pt-16 pb-12 lg:px-8">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">Now</p>
+    <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">近況</h1>
+    {latestDate && (
+      <p class="mt-3 text-sm text-gray-400">
+        最後更新：<time datetime={isoDate(latestDate)}>{updatedText}</time>
+        {latest?.data.title && <span> · {latest.data.title}</span>}
+      </p>
+    )}
+
+    <aside class="mt-8 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 text-sm leading-7 text-gray-300">
+      <p>
+        <strong class="text-gray-100">什麼是「近況頁」？</strong>
+        這個概念來自 <a href="https://nownownow.com/" target="_blank" rel="noopener" class="text-violet-300 hover:text-violet-200">nownownow.com</a>。
+        <a href="/about/" class="text-violet-300 hover:text-violet-200">關於</a>頁講的是過去的經歷，這一頁記錄我「現在」正在做、正在學、正在關注的事，每隔一段時間更新一次，舊的整理在下方的歸檔。
+      </p>
+    </aside>
+
+    {LatestContent ? (
+      <article id={latest?.id} class="article-prose prose prose-invert mt-10 max-w-none prose-headings:tracking-tight prose-p:leading-8">
+        <LatestContent />
+      </article>
+    ) : (
+      <p class="mt-10 text-base leading-7 text-gray-300">
+        第一期近況還在整理，先去看看<a href="/blog/" class="text-violet-300 hover:text-violet-200">文章</a>吧。
+      </p>
+    )}
+
+    {archive.length > 0 && (
+      <section class="mt-16 border-t border-white/10 pt-10" aria-labelledby="now-archive">
+        <h2 id="now-archive" class="text-lg font-semibold text-white">過往近況</h2>
+        <p class="mt-2 text-sm text-gray-400">共 {archive.length} 期，點開可以看當時的完整內容。</p>
+        <div class="mt-6 space-y-3">
+          {archive.map(({ entry, date, Content }) => (
+            <details class="now-archive" id={entry.id}>
+              <summary>
+                <time datetime={isoDate(date)}>{formatDate(date)}</time>
+                {entry.data.title && <span class="now-archive__title">{entry.data.title}</span>}
+                {entry.data.summary && <span class="now-archive__summary">{entry.data.summary}</span>}
+              </summary>
+              <div class="article-prose prose prose-invert mt-2 max-w-none prose-p:leading-8">
+                <Content />
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .now-archive {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    padding: 0 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .now-archive[open] {
+    border-color: rgba(196, 181, 253, 0.5);
+  }
+
+  .now-archive > summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.75rem;
+    padding: 1rem 0;
+    cursor: pointer;
+    list-style: none;
+    font-size: 0.875rem;
+    color: rgb(209 213 219);
+  }
+
+  .now-archive > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .now-archive > summary::before {
+    content: '▸';
+    color: rgb(196 181 253);
+    transition: transform 0.2s ease;
+  }
+
+  .now-archive[open] > summary::before {
+    transform: rotate(90deg);
+  }
+
+  .now-archive > summary time {
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .now-archive__summary {
+    color: rgb(156 163 175);
+  }
+
+  .now-archive > div {
+    padding-bottom: 1.25rem;
+  }
+</style>

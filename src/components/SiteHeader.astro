@@ -1,17 +1,22 @@
 ---
+import { getNowEntries } from '../lib/now';
+
 const path = Astro.url.pathname;
 const avatar = 'https://www.gravatar.com/avatar/c87cbee0a4a96655bd7366b56be7a18a?s=64';
+// 近況頁至少有一期發佈後，導覽列才會出現「近況」
+const hasNow = (await getNowEntries()).length > 0;
 
 const items = [
   { href: '/', label: '首頁', active: path === '/' || path === '/index.html' },
   { href: '/blog/', label: '文章', active: path.startsWith('/blog') },
+  ...(hasNow ? [{ href: '/now/', label: '近況', active: path.startsWith('/now') }] : []),
   { href: '/about/', label: '關於', active: path.startsWith('/about') },
   { href: '/contact/', label: '聯絡', active: path.startsWith('/contact') },
 ];
 ---
 <header class="sticky top-0 z-40 border-b border-white/10 bg-black/80 backdrop-blur">
-  <div class="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-6 lg:px-8">
-    <a href="/" class="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-white" data-ga="nav_click" data-ga-label="logo">
+  <div class="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-6 lg:px-8">
+    <a href="/" class="flex items-center gap-2 text-sm font-semibold tracking-tight text-white sm:gap-2.5" data-ga="nav_click" data-ga-label="logo">
       <img src={avatar} alt="" width="24" height="24" class="h-6 w-6 rounded-md ring-1 ring-white/10" />
       <span>littlechin</span>
     </a>
@@ -37,12 +42,19 @@ const items = [
     display: inline-flex;
     align-items: center;
     height: 2.25rem;
-    padding: 0 0.625rem;
+    padding: 0 0.4rem;
     border-radius: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
+    white-space: nowrap;
     color: rgb(209 213 219);
     transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  @media (min-width: 640px) {
+    .nav-tab {
+      padding: 0 0.625rem;
+    }
   }
 
   .nav-tab:hover {
@@ -57,12 +69,19 @@ const items = [
   .nav-tab--active::after {
     content: '';
     position: absolute;
-    left: 0.625rem;
-    right: 0.625rem;
+    left: 0.4rem;
+    right: 0.4rem;
     bottom: -0.45rem;
     height: 2px;
     border-radius: 9999px;
     background: rgb(196 181 253);
     box-shadow: 0 0 8px rgba(196, 181, 253, 0.6);
+  }
+
+  @media (min-width: 640px) {
+    .nav-tab--active::after {
+      left: 0.625rem;
+      right: 0.625rem;
+    }
   }
 </style>

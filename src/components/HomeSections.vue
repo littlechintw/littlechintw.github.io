@@ -14,6 +14,11 @@
           <h1 class="mt-8 text-4xl font-semibold tracking-tight sm:text-5xl">{{ data.profile.name }}</h1>
           <p class="mt-4 max-w-xl text-base leading-7 text-gray-300">{{ data.profile.description }}</p>
           <p v-if="data.profile.intro" class="mt-3 max-w-2xl text-base leading-7 text-gray-400">{{ data.profile.intro }}</p>
+          <a v-if="now" :href="now.href" class="now-link link-hover mt-5 inline-flex items-center gap-2 text-sm font-medium text-violet-200"
+            data-ga="nav_click" data-ga-label="近況">
+            <span class="now-dot" aria-hidden="true" />
+            現在在做什麼 · 更新於 {{ now.date }} <span aria-hidden="true">&rarr;</span>
+          </a>
         </div>
 
         <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 fade-in-element animation-delay-150">
@@ -124,6 +129,7 @@ import jsonData from '../data.json'
 const props = defineProps({
   posts: { type: Array, default: () => [] },
   totalPosts: { type: Number, default: 0 },
+  now: { type: Object, default: null },
 })
 
 const data = reactive(jsonData)
@@ -334,5 +340,24 @@ onMounted(() => {
   background: rgb(196 181 253);
   box-shadow: 0 0 8px rgba(196, 181, 253, 0.6);
   transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+/* 近況入口的呼吸燈 */
+.now-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: rgb(196 181 253);
+  box-shadow: 0 0 0 0 rgba(196, 181, 253, 0.6);
+  animation: nowPulse 2s ease-out infinite;
+}
+
+@keyframes nowPulse {
+  0% { box-shadow: 0 0 0 0 rgba(196, 181, 253, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(196, 181, 253, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(196, 181, 253, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .now-dot { animation: none; }
 }
 </style>

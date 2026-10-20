@@ -11,7 +11,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "new": "node scripts/new-post.mjs",
-    "check": "astro check"
+    "check": "astro check",
+    "now": "node scripts/new-now.mjs",
+    "lint:zh": "python3 -I scripts/zh-format.py diff src/content/blog src/content/now && autocorrect --lint src/content",
+    "fix:zh": "python3 -I scripts/zh-format.py write src/content/blog src/content/now && autocorrect --fix src/content"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
@@ -23,6 +26,10 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
+    "autocorrect-node": "^2.14.0",
     "tailwindcss": "^4.3.3"
+  },
+  "overrides": {
+    "postcss-selector-parser": "^7.1.6"
   }
 }

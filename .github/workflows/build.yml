@@ -35,3 +35,22 @@ jobs:
           build_dir: dist
           branch: gh-pages
           cname: littlechin.tw
+
+  lint-zh:
+    # 中文排版檢查，只提醒、不擋部署
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint Chinese typography
+        run: npm run lint:zh

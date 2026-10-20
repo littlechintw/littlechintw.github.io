@@ -1,0 +1,7 @@
+# AutoCorrect 設定（https://github.com/huacnlee/autocorrect）
+# 用法：npm run lint:zh 檢查、npm run fix:zh 修正。只掃 src/content。
+rules:
+  # 「(?)」「(X」這類半形括號保留原樣；中文句子裡的半形括號改全形由 scripts/zh-format.py 處理
+  space-bracket: 0
+  # 內建字典偏簡體用語，關掉
+  spellcheck: 0

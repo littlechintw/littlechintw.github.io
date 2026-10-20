@@ -1,6 +1,10 @@
 ---
+import { getNowEntries } from '../lib/now';
+
 const year = new Date().getFullYear();
+const hasNow = (await getNowEntries()).length > 0;
 const links = [
+  ...(hasNow ? [{ href: '/now/', label: '近況' }] : []),
   { href: '/about/', label: '關於' },
   { href: '/contact/', label: '聯絡' },
   { href: '/privacy/', label: '隱私權政策' },

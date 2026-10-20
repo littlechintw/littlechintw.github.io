@@ -39,7 +39,7 @@ writeFileSync(resolve(imageDir, '.gitkeep'), '');
 
 // 以台北時間取今天日期
 const today = new Date(Date.now() + 8 * 60 * 60 * 1000).toISOString().slice(0, 10);
-const tagList = tags.length ? `[${tags.join(', ')}]` : '[]';
+const tagList = `[${tags.map((tag) => JSON.stringify(tag)).join(', ')}]`;
 
 const content = `---
 title: "${title.replace(/"/g, '\\"')}"

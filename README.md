@@ -9,6 +9,8 @@ npm install
 npm run dev       # http://localhost:4321
 npm run build     # 輸出到 dist/
 npm run preview   # 預覽 build 結果
+npm run lint:zh   # 中文排版檢查（AutoCorrect + scripts/zh-format.py）
+npm run fix:zh    # 直接修正
 ```
 
 需要 Node.js 22.22 以上。
@@ -20,6 +22,7 @@ npm run new -- "文章標題" my-post-slug --tags 開發,工具
 ```
 
 會建立 `src/content/blog/my-post-slug.md` 與 `public/images/blog/my-post-slug/`。
+近況頁用 `npm run now`，會在 `src/content/now/` 建立以今天日期命名的檔案。
 欄位說明、寫作規範與發佈前檢查清單都在 **[docs/WRITING.md](docs/WRITING.md)**。
 
 ## 專案結構
@@ -27,10 +30,12 @@ npm run new -- "文章標題" my-post-slug --tags 開發,工具
 ```
 src/
 ├── content/blog/*.md        # 文章（檔名 = 網址 slug）
+├── content/now/*.md         # 近況頁，檔名 = 日期（YYYY-MM-DD.md），最新一期自動顯示在 /now/
 ├── content.config.ts        # 文章 frontmatter 的欄位與驗證規則
 ├── data.json                # 首頁的個人資料、專案、經歷
 ├── pages/                   # 每個檔案對應一個網址
 │   ├── index.astro          #   /            首頁
+│   ├── now.astro            #   /now/        近況（最新一期 + 歸檔）
 │   ├── about.astro          #   /about/      關於
 │   ├── contact.astro        #   /contact/    聯絡
 │   ├── privacy.astro        #   /privacy/    隱私權政策
@@ -56,6 +61,7 @@ public/
 ├── robots.txt, .nojekyll
 docs/WRITING.md              # 文章寫作規範
 scripts/new-post.mjs         # 建立新文章
+scripts/new-now.mjs          # 建立新一期近況（npm run now）
 ```
 
 ## 部署

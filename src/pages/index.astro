@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeSections from '../components/HomeSections.vue';
 import { formatDate, getPosts, isoDate, postUrl, readingTime } from '../lib/posts';
+import { entryDate, getNowEntries } from '../lib/now';
 
 const posts = await getPosts();
 const latest = posts.slice(0, 3).map((post) => ({
@@ -13,6 +14,9 @@ const latest = posts.slice(0, 3).map((post) => ({
   minutes: readingTime(post.body).minutes,
   tags: post.data.tags,
 }));
+
+const [latestNow] = await getNowEntries();
+const now = latestNow ? { href: '/now/', date: formatDate(entryDate(latestNow)) } : null;
 
 const description =
   '小群（littlechin）的個人網站。攝影師與程式設計師，記錄開發筆記、資安與社群活動、研討會攝影，以及廁所地圖、音樂祭行程規劃等自製工具。';
@@ -43,5 +47,5 @@ const jsonLd = [
 ];
 ---
 <BaseLayout title="littlechin｜小群的個人網站" description={description} jsonLd={jsonLd}>
-  <HomeSections client:load posts={latest} totalPosts={posts.length} />
+  <HomeSections client:load posts={latest} totalPosts={posts.length} now={now} />
 </BaseLayout>
