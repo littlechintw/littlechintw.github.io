@@ -116,7 +116,7 @@ const jsonLd = {
   </article>
 </BaseLayout>
 
-<script is:inline define:vars={{ slug: post.id, title: post.data.title, tags: post.data.tags.join(','), minutes }}>
+<script is:inline data-cfasync="false" define:vars={{ slug: post.id, title: post.data.title, tags: post.data.tags.join(','), minutes }}>
   if (typeof window.gtag === 'function') {
     window.gtag('event', 'article_view', {
       article_slug: slug,
