@@ -2,7 +2,7 @@
 title: "我做了一個可以離線使用的音樂祭行程網站"
 description: "從朋友做的大港開唱時間表網頁得到靈感，用 AI 做出純前端、可離線、開放資料格式的音樂祭行程 PWA：為什麼要離線、怎麼不花錢做分享功能、Vibe Coding 的體會，以及 Design System 帶來的改變。"
 pubDate: 2026-10-21
-tags: ["開發", "工具", "音樂祭行程規劃", "AI", "Vibe Coding"]
+tags: ["開發", "工具", "音樂祭行程規劃", "AI", "Vibe-Coding"]
 cover: /images/blog/music-festival-web-app/cover.jpg
 coverAlt: "音樂祭行程網站在手機上的三個畫面：音樂祭列表、全日時間軸與我的行程"
 draft: false
