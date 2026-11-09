@@ -61,7 +61,8 @@ const ogImage = image ? new URL(image, site).href : DEFAULT_IMAGE;
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>}
+    {/* 把 < 轉成 \u003c，避免標題或摘要含有 script 結尾標籤時提前關閉這個 script */}
+    {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')}></script>}
     <!-- Google AdSense：驗證與放送廣告用，全站每頁載入 -->
     <script
       is:inline

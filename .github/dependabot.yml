@@ -1,0 +1,21 @@
+version: 2
+updates:
+  # npm 套件：每週一次，minor/patch 合併成一個 PR 以免洗版
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Asia/Taipei
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+    open-pull-requests-limit: 5
+
+  # GitHub Actions：有 SHA 固定，交給 Dependabot 自動更新並同步註解裡的版本號
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Asia/Taipei

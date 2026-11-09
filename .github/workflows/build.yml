@@ -5,17 +5,20 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# 預設只給唯讀，需要推 gh-pages 的 job 再自己提升權限
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
           cache: npm
@@ -27,7 +30,7 @@ jobs:
         run: npm run build
 
       - name: GH Pages deploy
-        uses: Cecilapp/GitHub-Pages-deploy@3.2.1
+        uses: Cecilapp/GitHub-Pages-deploy@e1d24a95b0050d8d97ce8647409a3b0d8d01ebeb # 3.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -42,9 +45,9 @@ jobs:
     continue-on-error: true
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
           cache: npm
